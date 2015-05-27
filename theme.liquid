@@ -105,7 +105,7 @@
   <!--[if IE 8 ]>{{ 'ie8.css' | asset_url | stylesheet_tag }}<![endif]-->
   
   <!--[if IE 7]>
-	{{ 'font-awesome-ie7.css' | asset_url | stylesheet_tag }}
+  {{ 'font-awesome-ie7.css' | asset_url | stylesheet_tag }}
   <![endif]-->
   
   <!-- JS
@@ -240,7 +240,7 @@
           {% if settings.show_youtube %}<li><a href="{{ settings.youtube_url }}" target="_blank"><i class="icon-youtube icon-2x"></i></a></li>{% endif %}
           {% if settings.show_googleplus %}<li><a href="{{ settings.googleplus_url }}" target="_blank"><i class="icon-google-plus icon-2x"></i></a></li>{% endif %}
           {% if settings.show_instagram %}<li><a href="http://instagram.com/{{ settings.instagram-id }}" target="_blank"><i class="icon-instagram icon-2x"></i></a></li>{% endif %}
-		{% if settings.show_rss %}<li><a href="http://feeds.feedburner.com/OroxLeatherCo-Blog" target="_blank"><i class="icon-rss icon-2x"></i></a></li>{% endif %} 
+    {% if settings.show_rss %}<li><a href="http://feeds.feedburner.com/OroxLeatherCo-Blog" target="_blank"><i class="icon-rss icon-2x"></i></a></li>{% endif %} 
           {% if settings.mailchimp %}<li><a id="inline" href="#subscribe_popup" class="open_popup"><i class="icon-envelope icon-2x"></i></a></li>{% endif %}
         </ul>
         
@@ -279,31 +279,31 @@
     </header>
     
     <div class="row">
-      <div id="logo" class="desktop-12 mobile-3">       
+      <div id="logo" class="desktop-3 mobile-3">       
         {% if settings.use_logo_image %}
         <a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a>
         {% else %}
         <a href="/">{{ shop.name }}</a>
         {% endif %}           
       </div> 
+    
+      <div class="desktop-9">
+      <ul id="main-nav" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %}> 
+        {% for link in linklists.main-menu.links %}
+        <li>{{ link.title | link_to: link.url }}
+          {% capture child_list_handle %}{{ link.title | handleize }}{% endcapture %}
+          {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+          <ul class="sub">
+            {% for l in linklists[child_list_handle].links %}
+            <li><a href="{{ l.url }}">{{ l.title }}</a></li>          
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      </div>
     </div>
-    
-    <div class="clear"></div>
-    
-    <ul id="main-nav" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %}> 
-      {% for link in linklists.main-menu.links %}
-      <li>{{ link.title | link_to: link.url }}
-        {% capture child_list_handle %}{{ link.title | handleize }}{% endcapture %}
-        {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
-        <ul class="sub">
-          {% for l in linklists[child_list_handle].links %}
-          <li><a href="{{ l.url }}">{{ l.title }}</a></li>          
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
 
     <div class="clear"></div>
 
@@ -332,11 +332,11 @@
     <!-- End the 'orrible ie8 hack -->
     
     {% if template != 'index' %}
-    <div id="content" class="row">	
+    <div id="content" class="row">  
       {% if template != 'index' %}
       {% if settings.breadcrumb %}
-      {% include 'breadcrumb' %}	
-      {% endif %}	
+      {% include 'breadcrumb' %}  
+      {% endif %} 
       {% endif %}
       {{ content_for_layout }}  
     </div>
@@ -347,19 +347,45 @@
     
     <div class="row">
       <div id="logo" class="desktop-12 mobile-3">       
-        {% if settings.use_logo_image %}
-        <a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a>
-        {% else %}
-        <a href="/">{{ shop.name }}</a>
-        {% endif %}           
+        <div class="desktop-4">
+          <h1>THE FINE PRINT</h1>
+          <ul id="fine-print">
+            <li><a href="{{ settings.facebook_url }}" target="_blank">Return & Repair Policy</a></li>
+            <li><a href="{{ settings.facebook_url }}" target="_blank">Redeem a Gift Card</a></li>
+          <li><a href="{{ settings.facebook_url }}" target="_blank">Wholesale Inquiries</a></li>
+            <li><a href="{{ settings.facebook_url }}" target="_blank">Privacy Policy</a></li>
+            <li><a href="{{ settings.facebook_url }}" target="_blank">Catalog Request</a></li>
+          </ul>
+        </div>
+        <div class="desktop-4">
+          <h1>STAY CONNECTED</h1>
+          <ul id="footer-social-icons">
+          {% if settings.show_facebook %}<li><a href="{{ settings.facebook_url }}" target="_blank"><i class="icon-facebook icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_twitter %}<li><a href="http://www.twitter.com/{{ settings.twittername }}" target="_blank"><i class="icon-twitter icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_pinterest %}<li><a href="{{ settings.pinterest_url }}" target="_blank"><i class="icon-pinterest icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_googleplus %}<li><a href="{{ settings.googleplus_url }}" target="_blank"><i class="icon-google-plus icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_instagram %}<li><a href="http://instagram.com/{{ settings.instagram-id }}" target="_blank"><i class="icon-instagram icon-2x"></i></a></li>{% endif %}
+      </ul>
+        </div> 
+        <div class="desktop-4">
+          <h1>SEARCH</h1>
+          <!-- BEGIN #subs-container -->
+          <div id="subs-container" class="clearfix">
+            <div id="search">
+              <form action="/search" method="get">
+                <input type="text" name="q" id="q" placeholder="search..." />
+              </form>
+            </div>  
+          </div>
+        </div> 
       </div> 
     </div>    
     
     
   </div>  <!-- End page wrap for sticky footer -->
   
- <div id="footer-wrapper">	
-    <div id="footer" class="row">		
+ <div id="footer-wrapper">  
+    <div id="footer" class="row">   
       <div class="credit desktop-12">
         <p>Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name }} • <a href="http://www.oroxleather.com/pages/privacy-policy" target="_blank" title="Shopify theme">Privacy Policy</a> • {{http://www.oroxleather.com/pages/privacy-policy}} <a href="http://www.oroxleather.com/pages/our-guarantee" target="_blank" title="Shopify theme">Lifetime Guarantee</a> • {{http://www.oroxleather.com/pages/our-guarantee}}</p>
       </div>
