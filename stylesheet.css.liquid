@@ -1062,6 +1062,11 @@ dd { margin-left: 0; }
 }
 #footer-wrapper { z-index: 2; clear: left;  }
 #footer { padding: 10px 0; text-align: center; }
+ul#footer-social-icons { text-align: center; list-style: none; }
+ul#footer-social-icons li { text-align: left; display: inline; padding: 0 10px 0 0; }
+ul#footer-social-icons li a { color: {{ settings.header-icons }}; }
+ul#footer-social-icons li a:hover { color: {{ settings.header-icons-hover }}} 
+
 
 #subscribe_popup {
   text-align: center; 
@@ -2563,7 +2568,7 @@ ul#main-nav li:hover { background: {{ settings.nav_hover_color }};  }
 ul#main-nav li a { 
   font-family: {{ settings.navigation-font}}; 
   font-weight: bold; 
-  font-size: 3em; 
+  font-size: 2em; 
   color: {{ settings.nav_color }}; 
   display: block; 
   padding: 10px 20px; 

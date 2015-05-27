@@ -287,7 +287,7 @@
         {% endif %}           
       </div> 
     
-      <div class="desktop-9 mobile-3">
+      <div class="desktop-9">
       <ul id="main-nav" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %}> 
         {% for link in linklists.main-menu.links %}
         <li>{{ link.title | link_to: link.url }}
@@ -347,11 +347,18 @@
     
     <div class="row">
       <div id="logo" class="desktop-12 mobile-3">       
-        {% if settings.use_logo_image %}
-        <a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a>
-        {% else %}
-        <a href="/">{{ shop.name }}</a>
-        {% endif %}           
+        <div class="desktop-4"><h1>THE FINE PRINT</h1></div>
+        <div class="desktop-4">
+          <h1>STAY CONNECTED</h1>
+          <ul id="footer-social-icons">
+          {% if settings.show_facebook %}<li><a href="{{ settings.facebook_url }}" target="_blank"><i class="icon-facebook icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_twitter %}<li><a href="http://www.twitter.com/{{ settings.twittername }}" target="_blank"><i class="icon-twitter icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_pinterest %}<li><a href="{{ settings.pinterest_url }}" target="_blank"><i class="icon-pinterest icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_googleplus %}<li><a href="{{ settings.googleplus_url }}" target="_blank"><i class="icon-google-plus icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_instagram %}<li><a href="http://instagram.com/{{ settings.instagram-id }}" target="_blank"><i class="icon-instagram icon-2x"></i></a></li>{% endif %}
+      </ul>
+        </div> 
+        <div class="desktop-4"><h1>SEARCH</h1></div> 
       </div> 
     </div>    
     
