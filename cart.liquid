@@ -1,10 +1,10 @@
 <div id="shopping-cart" class="desktop-12 tablet-6 mobile-3">
-  
-  <h2>My Cart</h2>
+
+  <h2>{{ 'cart.general.title' | t }}</h2>
   {% if cart.item_count == 0 %}
-  <p>Your Bag is currently empty.</p>
-  
-  
+  <p>{{ 'cart.general.empty' | t }}</p>
+
+
   {% else %}
   <script type="text/javascript">
     function remove_item(id) {
@@ -13,59 +13,61 @@
     }
   </script>
   <form action="/cart" method="post" id="cartform">
-    
-    <table class="desktop-9 tablet-6 mobile-3">
+
+    <table>
       <thead>
         <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th style="text-align: center;">Qty</th>
-          <th style="text-align: center;">Delete</th>
-          <th>Total</th>
+          <th>{{ 'cart.general.product' | t }}</th>
+          <th>{{ 'cart.general.price' | t }}</th>
+          <th style="text-align: center;">{{ 'cart.general.qty' | t }}</th>
+          <th style="text-align: center;">{{ 'cart.general.remove' | t }}</th>
+          <th>{{ 'cart.general.price' | t }}</th>
         </tr>
       </thead>
       <tbody>
         {% for item in cart.items %}
         <tr>
-          <td>
-            <div class="cart-item">
-              <div class="cart-image">
-                <a href="{{ item.url }}" title="{{ item.product.title | escape }}">
-                  <img src="{{ item | img_url: 'small' }}"  alt="{{ item.title | escape }}" />         
-                </a>
-              </div>
-              <div class="cart-title">
-                {% if settings.vendor %}<p>{{ item.vendor }}</p>{% endif %}
-                <p>{{ item.title }}</p>
-              </div>
+          <td class="cart-item">
+            <div class="cart-image">
+              <a href="{{ item.url }}" title="{{ item.product.title | escape }}">
+                <img src="{{ item | img_url: 'compact' }}" alt="{{ item.title | escape }}" />
+              </a>
+            </div>
+            <div class="cart-title">
+              {% if settings.vendor %}<p>{{ item.vendor }}</p>{% endif %}
+              {{ item.title }}
             </div>
           </td>
-          <td>
-            <p>{{ item.price | money }}{% if item.variant.compare_at_price > item.price %}<br /><del>{{ item.variant.compare_at_price | money }}</del>{% endif %}</p>          
+          <td class="cart-price">
+            {{ item.price | money }}{% if item.variant.compare_at_price > item.price %}&nbsp;<del>{{ item.variant.compare_at_price | money }}</del>{% endif %}          
           </td>
-          <td>
-            <input type="text" class="cart-qty" size="4" name="updates[{{ item.id }}]" id="updates_{{ item.variant.id }}" value="{{ item.quantity }}" onfocus="this.select();" style="max-width: 50px; text-align: center; margin: 0 auto 10px; "/>    
+          <td class="cart-quantity">
+            <input type="text" class="cart-qty" size="4" name="updates[{{ item.id }}]" id="updates_{{ item.variant.id }}" value="{{ item.quantity }}" onfocus="this.select();"/>    
           </td>
-          <td style="text-align: center">
-            <p><a href="#" onclick="remove_item({{ item.variant.id }}); return false;"><i class="icon-trash icon-2x"></i></a></p>
+          <td class="cart-remove">
+            <a href="#" onclick="remove_item({{ item.variant.id }}); return false;"><i class="icon-trash icon-2x"></i></a>
           </td>
-          <td>
-            <p>{{ item.line_price | money }}</p>
+          <td class="cart-total">
+            {{ item.line_price | money }}
           </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-    
+
+    <div id="cart-notes" class="desktop-9 tablet-6 mobile-3">
+      <label for="note"><strong>{{ 'cart.general.note' | t }}</strong></label>
+      <textarea name="note" id="note" rows="5" cols="60">{{cart.note}}</textarea>  
+    </div> 
     
     <div id="basket-right" class="desktop-3 tablet-6 mobile-3">
-      <h4>Subtotal {{ cart.total_price | money }}</h4>
-      <p><a href="/collections">Continue Shopping</a></p>
-      <input type="submit" name="update" id="update-cart" value="UPDATE" class="button" />
-      <input type="submit" name="checkout" id="checkout" value="CHECKOUT" class="button" />
+      <h4>{{ 'cart.general.subtotal' | t }} {{ cart.total_price | money }}</h4>
+      <p><a href="/collections">{{ 'cart.general.continue' | t }}</a></p>
+      <input type="submit" name="update" id="update-cart" value="{{ 'cart.general.update' | t }}" class="button" />
+      <input type="submit" name="checkout" id="checkout" value="{{ 'cart.general.checkout' | t }}" class="button" />
       <div class="clear"></div>
       {% if additional_checkout_buttons %} {{ content_for_additional_checkout_buttons }} {% endif %}
-      
+
       {% if settings.american_express %}<img src="{{ 'amex.png' | asset_url }}"/>{% endif %}
       {% if settings.dankort %}<img src="{{ 'dankort.png' | asset_url }}"/>{% endif %}
       {% if settings.diners %}<img src="{{ 'diners.png' | asset_url }}"/>{% endif %}
@@ -79,20 +81,17 @@
       {% if settings.solo %}<img src="{{ 'solo.png' | asset_url }}"/>{% endif %}  
       {% if settings.visa %}<img src="{{ 'visa.png' | asset_url }}"/>{% endif %}
     </div>
-        
-      
-    <div id="cart-notes" class="desktop-12 mobile-3">
-      <label for="note"><strong>Please leave special instructions below:</strong></label>
-      <textarea name="note" id="note" rows="5" cols="60">{{cart.note}}</textarea>  
-    </div>    
 
-    
+
+   
+
+
   </form>
   {% endif %}
-  
-  <div id="looked-at" class="desktop-12 mobile-half">
+
+  <div id="looked-at" class="desktop-12 tablet-6 mobile-3">
     {% include 'recently-viewed' %}
   </div>
-  
+
 </div>
 
