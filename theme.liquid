@@ -209,18 +209,19 @@
 
         </ul>        
 
-      </div>   
+      </div>
+     
     </header>
 
-    <div class="row">
-      <div id="logo" class="desktop-3 tablet-6 mobile-3">       
-        {% if settings.use_logo_image %}
-        <div id="logoImage"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a></div>
-        {% else %}
-        <a href="/">{{ shop.name }}</a>
-        {% endif %}           
-      </div>
+    <div class="">
       <nav>
+        <div id="logo" class="desktop-3 tablet-6 mobile-3">
+          {% if settings.use_logo_image %}
+          <div id="logoImage"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a></div>
+          {% else %}
+          <a href="/">{{ shop.name }}</a>
+          {% endif %}
+        </div>
         <ul id="main-nav" class="desktop-9" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %}> 
           {% for link in linklists.main-menu.links %}
           {% include 'navigation' %}
