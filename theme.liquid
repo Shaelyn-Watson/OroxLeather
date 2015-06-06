@@ -221,7 +221,7 @@
         {% endif %}           
       </div>
       <nav>
-        <ul id="main-nav" class="desktop-9" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %} class="row"> 
+        <ul id="main-nav" class="desktop-9" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %}> 
           {% for link in linklists.main-menu.links %}
           {% include 'navigation' %}
           {% endfor %}
