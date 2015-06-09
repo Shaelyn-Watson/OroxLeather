@@ -209,38 +209,36 @@
 
         </ul>        
 
-      </div>   
+      </div>
+     
     </header>
 
-    <div class="row">
-      <div id="logo" class="desktop-12 tablet-6 mobile-3">       
-        {% if settings.use_logo_image %}
-        <a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a>
-        {% else %}
-        <a href="/">{{ shop.name }}</a>
-        {% endif %}           
-      </div> 
+    <div class="">
+      <nav>
+        <div id="logo" class="desktop-3 tablet-6 mobile-3">
+          {% if settings.use_logo_image %}
+          <div id="logoImage"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a></div>
+          {% else %}
+          <a href="/">{{ shop.name }}</a>
+          {% endif %}
+        </div>
+        <ul id="main-nav" class="desktop-9" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %}> 
+          {% for link in linklists.main-menu.links %}
+          {% include 'navigation' %}
+          {% endfor %}
+        </ul>
+      </nav>
     </div>
-
-    <div class="clear"></div>
-
-    <nav>
-      <ul id="main-nav" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %} class="row"> 
-        {% for link in linklists.main-menu.links %}
-        {% include 'navigation' %}
-        {% endfor %}
-      </ul>
-    </nav>
 
     <div class="clear"></div>
 
 
     {% if template != 'index' %}
-    <div id="content" class="row">	
+    <div id="content" class="row">  
       {% if template != 'index' %}
       {% if settings.breadcrumb %}
-      {% include 'breadcrumb' %}	
-      {% endif %}	
+      {% include 'breadcrumb' %}  
+      {% endif %} 
       {% endif %}
       {{ content_for_layout }}  
     </div>
@@ -264,7 +262,7 @@
 
   </div>  <!-- End page wrap for sticky footer -->
 
-  <div id="footer-wrapper">	
+  <div id="footer-wrapper"> 
     <div id="footer" class="row">
 
       {% assign grid = 0 %}
