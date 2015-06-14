@@ -1158,10 +1158,6 @@ header {
   color: {{ settings.header-icons }};
 }
 
-#logoImage {
-  text-align: left;
-}
-
 ul#social-icons { 
   margin-bottom: 0; 
   text-align: left; 
@@ -1382,8 +1378,15 @@ p.empty-cart { text-align: center; margin-bottom: 0; }
 #hello { text-align: center; }
 #hello p { margin-bottom: 0; color: {{ settings.hello-color }}; font-size: {{ settings.hello-size }}; font-weight: {{ settings.hello-weight }}; }
 
-#logo { line-height: initial; {% if settings.logo-border != 'no' %}border-bottom: {{ settings.logo-border-size }} solid {{ settings.logo-border-color }}; {% endif %} position: relative; margin-bottom: 20px; margin-top: 20px; text-align: center;  }
+#logo { line-height: initial; 
+  {% if settings.logo-border != 'no' %}border-bottom: {{ settings.logo-border-size }} solid {{ settings.logo-border-color }}; {% endif %} 
+  position: relative; 
+  text-align: left;
+  padding: 1% 0 0 5%;
+}
 #logo a { vertical-align: middle; font-family: {{ settings.logo-font }}; font-size: {{ settings.logo-size }}; text-transform: {{ settings.logo-transform }}; font-weight: {{ settings.logo-weight }}; color: {{ settings.logo-color }}; text-decoration: none; }
+
+#logo img { max-width: 180px; }
 
 #content { margin-bottom: 50px; {% if template != 'index' %}margin-top: 10px;{% endif %} position: relative; }
 
@@ -1472,7 +1475,7 @@ p.empty-cart { text-align: center; margin-bottom: 0; }
 .collection-index { 
   {% if settings.product-border %} border: 1px solid {{ settings.dotted_color }};{% endif %}
   position: relative;
-  margin: 0 0 0 0 !important;
+  margin: -10px 0 0 0 !important;
 }
 
 .collection-info {  
@@ -3918,10 +3921,11 @@ color: #444;
   height: 100%;
 }
 
+/* Orox */
 nav { 
   {% if settings.nav-style == 'full' %}{% elsif settings.nav-style == 'mobile' %}display: none;{% endif %}     
   width: 100%; 
-  background: {{ settings.navigation }}; 
+  background:  url({{ 'background.jpg' | asset_url }}); 
   margin-bottom: 0px;
   border-top: {{ settings.nav-top-border-height }} solid {{ settings.nav-border-color }};
   border-bottom: {{ settings.nav-bottom-border-height }} solid {{ settings.nav-border-color }};  

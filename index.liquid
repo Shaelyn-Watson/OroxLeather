@@ -72,7 +72,7 @@
     <a name="ShopByCollection"><div class="section-title lines"></div></a>
     {% endif %}    
 
-    {% for link in linklists[settings.home-collection-linklist].links %}
+    {% for link in linklists[settings.home-collection-linklist].links limit:4%}
     {% assign collection = link.object %}
     <div class="collection-index desktop-3 tablet-half mobile-half{% cycle ' first', '', '', ' last' %}" data-alpha="{{ collection.title }}">  
       <div class="collection-image">
