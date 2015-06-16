@@ -167,7 +167,7 @@
     <header>
       <div class="row">
 
-        <ul id="social-icons" class="{% if settings.enable-hello %}desktop-3{% else%}desktop-6{% endif %} tablet-6 mobile-hide">
+        <ul id="social-icons" class="{% if settings.enable-hello %}desktop-3{% else%}desktop-5{% endif %} tablet-6 mobile-hide">
           {% if settings.show_facebook %}<li><a href="{{ settings.facebook_url }}" target="_blank"><i class="icon-facebook icon-2x"></i></a></li>{% endif %}
           {% if settings.show_twitter %}<li><a href="http://www.twitter.com/{{ settings.twittername }}" target="_blank"><i class="icon-twitter icon-2x"></i></a></li>{% endif %}
           {% if settings.show_pinterest %}<li><a href="{{ settings.pinterest_url }}" target="_blank"><i class="icon-pinterest icon-2x"></i></a></li>{% endif %}
@@ -217,7 +217,7 @@
       <nav>
         <div id="logo" class="desktop-3 tablet-6 mobile-3">
           {% if settings.use_logo_image %}
-          <div id="logoImage"><a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a></div>
+          <a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a>
           {% else %}
           <a href="/">{{ shop.name }}</a>
           {% endif %}
