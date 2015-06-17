@@ -308,7 +308,7 @@ jQuery(function($){
       lastScrollTop = st;
     });
     $.fn.stickUp = function( options ) {
-      $(this).addClass('stuckMenu');
+      $("#fixed_header").addClass('stuckMenu');
       var objn = 0;
       if(options != null) {
         for(var o in options.parts) {
