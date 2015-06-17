@@ -378,11 +378,13 @@ jQuery(function($){
         $('.stuckMenu').next().closest('div').css({'margin-top': stickyHeight + stickyMarginB + currentMarginT + 'px'}, 10);
         $('.stuckMenu').css("position","fixed");
         $('.isStuck').css({top: '0px'}, 10, function(){});
+        $("#logo img").css("max-width", "90px");
       };
       if(varscroll + topMargin < vartop){
         $('.stuckMenu').removeClass('isStuck');
         $('.stuckMenu').next().closest('div').css({'margin-top': currentMarginT + 'px'}, 10);
         $('.stuckMenu').css("position","relative");
+        $("#logo img").css("max-width", "180px");
       };});});});
 
 
