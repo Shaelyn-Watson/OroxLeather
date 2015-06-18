@@ -3928,8 +3928,7 @@ color: #444;
 
 /* Orox */
 nav { 
-  {% if settings.nav-style == 'full' %}{% elsif settings.nav-style == 'mobile' %}display: none;{% endif %}     
-  width: 100%; 
+  {% if settings.nav-style == 'full' %}{% elsif settings.nav-style == 'mobile' %}display: none;{% endif %}      
   background:  url({{ 'background.jpg' | asset_url }}); 
   margin-bottom: 0px;
   border-top: {{ settings.nav-top-border-height }} solid {{ settings.nav-border-color }};
@@ -3945,7 +3944,7 @@ nav {
 ul#main-nav { 
   list-style: none; 
   text-align: right;
-  margin-bottom: 0;
+  margin: 0 2% -10px 0;
   position: relative;
 }
 
@@ -3955,13 +3954,12 @@ ul#main-nav li {
   vertical-align: middle;
 }
 
-
 ul#main-nav li:hover { background: {{ settings.nav_hover_color }};  }
 
 ul#main-nav li a { 
   font-family: {{ settings.navigation-font}}; 
   font-weight: {{ settings.nav-weight }}; 
-  font-size: {{ settings.nav_size }}; 
+  font-size: 30px; 
   color: {{ settings.nav_color }}; 
   display: block; 
   padding: 0 20px; 
