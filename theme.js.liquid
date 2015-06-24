@@ -217,9 +217,9 @@ function addToCartSuccess (jqXHR, textStatus, errorThrown){
   <a href="/cart">{{ 'products.product.add_to_cart_success_link' | t }}</a>
   {% endcapture %}
   
-   window.location = "/cart">{{ 'products.product.add_to_cart_success_link' | t }};
+   window.location = "/cart";
 
-  $('.add-to-cart-msg').hide().addClass('success').html({{ 'products.product.add_to_cart_success_html' | t: link: link | json }}).fadeIn().delay(3000).fadeOut();
+  $('.add-to-cart-msg').hide().addClass('success').html({{ 'products.product.add_to_cart_success_html' | t: link: link | json }}).fadeIn().delay(10000).fadeOut();
 }
 
 function addToCartFail(jqXHR, textStatus, errorThrown){
