@@ -1,6 +1,8 @@
 {% assign section_order = settings.homepage_sections | replace: ' ', '' | split: ',' %}
 {% for section_order in section_order %}
 
+<!-- Orox currently uses sections 1,2,10,4 -->
+
 {% if section_order == '1' %}
 <section class="homepage-section animate wow fadeIn">
   {% if settings.display-wide %}
@@ -65,16 +67,10 @@
 </section>
 {% elsif section_order == '2' %}
 <section class="homepage-section animate wow fadeIn no-fouc">
-  <div id="collection-loop" class="row">
-    {% if settings.homepage-collection-title ==  blank %}
-    <a name="ShopByCollection"><div class="section-title lines"></div></a>
-    {% else %}
-    <a name="ShopByCollection"><div class="section-title lines"></div></a>
-    {% endif %}    
-
+  <div id="collection-loop" class="row" style="width:100%;">    
     {% for link in linklists[settings.home-collection-linklist].links limit:4%}
     {% assign collection = link.object %}
-    <div class="collection-index desktop-3 tablet-half mobile-half{% cycle ' first', '', '', ' last' %}" data-alpha="{{ collection.title }}">  
+    <div class="collection-index desktop-collection-collage tablet-half-collage mobile-half{% cycle ' first', '', '', ' last' %}" data-alpha="{{ collection.title }}">  
       <div class="collection-image">
         <a href="{{ collection.url }}" title="{{ collection_title }}">
           {% if collection.image %}
@@ -109,7 +105,7 @@
 <section class="homepage-section animate wow fadeIn no-fouc">
   {% assign url = '{{image}}' %}
   {% assign caption = '{{caption}}' %}
-  <div id="instagram-card" class="row">
+  <div id="instagram-card" class="row" style="width:100%;">
     <div class="section-title lines"><h2><a href="http://instagram.com/{{ settings.instagram-id }}" target="_blank">{{ 'layout.homepage.instagram' | t }} @{{ settings.instagram-id }}</a> {{ 'layout.homepage.instagram_follow_where' | t }}</h2></div>  
     <div id="instafeed"></div>
     <script type="text/javascript">
@@ -196,31 +192,33 @@
 {% if settings.promo4 %}{% assign grid = grid | plus: 1 %}{% endif %}   
 {% if grid > 0 %} 
 <section class="homepage-section animate wow fadeIn no-fouc">
-  <div class="row">
+  <div class="row" style="width:100%;">
     {% assign promo = 'promo1' %}
     {% if settings.promo1 %}        
-    <div class="homepage-promo desktop-{{ 12 | divided_by: grid }} mobile-3">
+    <div class="homepage-promo desktop-large-collage tablet-collage-large">
       {% include 'homepage_promo' %}
     </div>
     {% endif %}
     {% assign promo = 'promo2' %}
     {% if settings.promo2 %}  
-    <div class="homepage-promo desktop-{{ 12 | divided_by: grid }} mobile-3">
+    <div class="homepage-promo desktop-small-collage tablet-collage-small">
       {% include 'homepage_promo' %}
     </div>
-    {% endif %}        
+    {% endif %}
+  </div>
+  <div class="row" style="width:100%;">
     {% assign promo = 'promo3' %}
     {% if settings.promo3 %}  
-    <div class="homepage-promo desktop-{{ 12 | divided_by: grid }} mobile-3">
+    <div class="homepage-promo desktop-small-collage tablet-collage-small">
       {% include 'homepage_promo' %}
     </div>
     {% endif %}
     {% assign promo = 'promo4' %}
     {% if settings.promo4 %}  
-    <div class="homepage-promo desktop-{{ 12 | divided_by: grid }} mobile-3">
+    <div class="homepage-promo desktop-large-collage tablet-collage-large">
       {% include 'homepage_promo' %}
     </div>
-    {% endif %}        
+    {% endif %}
   </div>
 </section>
 {% endif %}

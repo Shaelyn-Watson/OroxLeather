@@ -213,20 +213,26 @@
      
     </header>
 
-    <div class="">
+    <div id="fixed_header" class="">
       <nav>
-        <div id="logo" class="desktop-3 tablet-6 mobile-3">
+        <table><tr>
+        <td>
+        <div id="logo">
           {% if settings.use_logo_image %}
           <a href="/"><img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="border: 0;"/></a>
           {% else %}
           <a href="/">{{ shop.name }}</a>
           {% endif %}
         </div>
-        <ul id="main-nav" class="desktop-9" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %}> 
+        </td>
+        <td>
+        <ul id="main-nav" role="navigation" {% if template == 'index' and settings.display-wide %}style="margin-bottom: 0;"{% else %}{% endif %}> 
           {% for link in linklists.main-menu.links %}
           {% include 'navigation' %}
           {% endfor %}
         </ul>
+        </td>
+        </tr></table>
       </nav>
     </div>
 
@@ -271,14 +277,6 @@
       {% if settings.footer-3-links != '' %}{% assign grid = grid | plus: 1 %}{% endif %} 
       {% assign grid = grid | plus: 1 %}        
       {% if grid > 0 %}
-      <div class="desktop-{{ 12 | divided_by: grid }} tablet-half mobile-half">
-        <h4>{{ 'layout.footer.navigation' | t }}</h4>
-        <ul>
-          {% for link in linklists.footer.links %}
-          <li>{{ link.title | link_to: link.url }}</li>
-          {% endfor %}
-        </ul>
-      </div>
 
       {% if settings.footer-2-links != '' %}
       <div class="desktop-{{ 12 | divided_by: grid }} tablet-half mobile-half">
@@ -292,49 +290,50 @@
         </ul>
       </div>
       {% endif %}
-
-      {% if settings.footer-3-links != '' %}
-      <div class="desktop-{{ 12 | divided_by: grid }} tablet-half mobile-half">
-        {% if settings.footer-3-links != '' %}        
-        <h4>{{ linklists[settings.footer-3-links].title }}</h4>
-        {% endif %}
-        <ul>
-          {% for link in linklists[settings.footer-3-links].links %}
-          <li>{{ link.title | link_to: link.url }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-
+  
       <div class="desktop-{{ 12 | divided_by: grid }} tablet-half mobile-3">
-        <h4>{{ 'layout.footer.connect' | t }}</h4>
+        <h4>Keep in Touch</h4>
+        <ul id="footer-icons">
+          {% if settings.show_facebook %}<li><a href="{{ settings.facebook_url }}" target="_blank"><i class="icon-facebook icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_twitter %}<li><a href="http://www.twitter.com/{{ settings.twittername }}" target="_blank"><i class="icon-twitter icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_pinterest %}<li><a href="{{ settings.pinterest_url }}" target="_blank"><i class="icon-pinterest icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_tumblr %}<li><a href="{{ settings.tumblr_url }}" target="_blank"><i class="icon-tumblr icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_youtube %}<li><a href="{{ settings.youtube_url }}" target="_blank"><i class="icon-youtube icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_googleplus %}<li><a href="{{ settings.googleplus_url }}" target="_blank"><i class="icon-google-plus icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_instagram %}<li><a href="http://instagram.com/{{ settings.instagram-id }}" target="_blank"><i class="icon-instagram icon-2x"></i></a></li>{% endif %}
+          {% if settings.show_rss %}<li><a href="{{ shop.url }}/blogs/news.atom" target="_blank"><i class="icon-rss icon-2x"></i></a></li>{% endif %}
+        </ul>     
         <div id="footer_signup">
           <p>{{ settings.footer_signup_text }}</p>
           <form action="{{ settings.mailchimp }}" method="post" id="footer-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
             <input value="" name="EMAIL" class="email" id="footer-EMAIL" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" required="" type="email">
             <input value="{{ 'general.newsletter_form.submit' | t }}" name="subscribe" id="footer-subscribe" class="button" type="submit">
           </form>
-        </div> 
+        </div>
+        <p><a href="/pages/contact-us">Find Our Store</a></p>
+        <p><a href="/pages/contact-us">Contact Us</a></p>
       </div>      
       {% endif %}
-      <div class="clear"></div>
-
-      <ul id="footer-icons" class="desktop-12 tablet-6 mobile-3">
-        {% if settings.show_facebook %}<li><a href="{{ settings.facebook_url }}" target="_blank"><i class="icon-facebook icon-2x"></i></a></li>{% endif %}
-        {% if settings.show_twitter %}<li><a href="http://www.twitter.com/{{ settings.twittername }}" target="_blank"><i class="icon-twitter icon-2x"></i></a></li>{% endif %}
-        {% if settings.show_pinterest %}<li><a href="{{ settings.pinterest_url }}" target="_blank"><i class="icon-pinterest icon-2x"></i></a></li>{% endif %}
-        {% if settings.show_tumblr %}<li><a href="{{ settings.tumblr_url }}" target="_blank"><i class="icon-tumblr icon-2x"></i></a></li>{% endif %}
-        {% if settings.show_youtube %}<li><a href="{{ settings.youtube_url }}" target="_blank"><i class="icon-youtube icon-2x"></i></a></li>{% endif %}
-        {% if settings.show_googleplus %}<li><a href="{{ settings.googleplus_url }}" target="_blank"><i class="icon-google-plus icon-2x"></i></a></li>{% endif %}
-        {% if settings.show_instagram %}<li><a href="http://instagram.com/{{ settings.instagram-id }}" target="_blank"><i class="icon-instagram icon-2x"></i></a></li>{% endif %}
-        {% if settings.show_rss %}<li><a href="{{ shop.url }}/blogs/news.atom" target="_blank"><i class="icon-rss icon-2x"></i></a></li>{% endif %}
-      </ul>      
-
+      
+      <div class="desktop-{{ 12 | divided_by: grid }} tablet-half mobile-half">
+        <h4>Search</h4>
+        <!-- BEGIN #subs-container -->
+        <div id="subs-container" class="clearfix">
+          <i class="icon-search icon-2x" style="float:left; padding: 10px 15px;"></i>
+          <div id="search" style="float:left;">
+            <form action="/search" method="get">
+              <input type="text" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" />
+            </form>
+          </div>  
+        </div>
+        <p><a href="/pages/privacy-policy">Privacy policy</a></p>
+      
+      </div>
       <div class="clear"></div>
 
       <div class="credit desktop-12 tablet-6 mobile-3">
+        <p>COPYRIGHT © 2015 OROX LEATHER CO. • 450 NW COUCH ST. • PORTLAND, OR 97209 • 503.954.2593</p>
         <p>
-          {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} {{ shop.name }} • 
           <a href="http://www.shopifythemes.net" target="_blank" title="Shopify theme">Shopify Theme</a>
           {{ 'layout.footer.theme_title' | t }} Underground Media • 
           {{ powered_by_link | replace: '" target', '?ref=undergroundmedia" target' }}
