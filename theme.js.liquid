@@ -210,20 +210,16 @@ function addToCartSuccess (jqXHR, textStatus, errorThrown){
     cache: false,
     dataType: 'json',
     success: updateCartDesc
-  });
-
-  $('#crt').addClass('block');
-
-  setTimeout(function () { 
-    $('#crt').removeClass('block');
-  }, 3000);  
+  });  
 
   
   {% capture link %}
   <a href="/cart">{{ 'products.product.add_to_cart_success_link' | t }}</a>
   {% endcapture %}
+  
+   window.location = "/cart";
 
-  $('.add-to-cart-msg').hide().addClass('success').html({{ 'products.product.add_to_cart_success_html' | t: link: link | json }}).fadeIn().delay(3000).fadeOut();
+  $('.add-to-cart-msg').hide().addClass('success').html({{ 'products.product.add_to_cart_success_html' | t: link: link | json }}).fadeIn().delay(10000).fadeOut();
 }
 
 function addToCartFail(jqXHR, textStatus, errorThrown){
@@ -308,7 +304,7 @@ jQuery(function($){
       lastScrollTop = st;
     });
     $.fn.stickUp = function( options ) {
-      $(this).addClass('stuckMenu');
+      $("#fixed_header").addClass('stuckMenu');
       var objn = 0;
       if(options != null) {
         for(var o in options.parts) {
@@ -378,11 +374,13 @@ jQuery(function($){
         $('.stuckMenu').next().closest('div').css({'margin-top': stickyHeight + stickyMarginB + currentMarginT + 'px'}, 10);
         $('.stuckMenu').css("position","fixed");
         $('.isStuck').css({top: '0px'}, 10, function(){});
+        $("#logo img").css("max-width", "130px");
       };
       if(varscroll + topMargin < vartop){
         $('.stuckMenu').removeClass('isStuck');
         $('.stuckMenu').next().closest('div').css({'margin-top': currentMarginT + 'px'}, 10);
         $('.stuckMenu').css("position","relative");
+        $("#logo img").css("max-width", "250px");
       };});});});
 
 
