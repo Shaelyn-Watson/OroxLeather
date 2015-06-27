@@ -1,7 +1,7 @@
 {% paginate collection.products by 48 %}
 
 
-<div id="collection-description" class="desktop-12 tablet-6 mobile-3">
+<div id="collection-description" class="desktop-12">
   {% if settings.collection_sidebar == '0' %}
   <h1>{% if collection.handle == 'all' %}{{ 'collections.general.all_products' | t }}{% else %}{{ collection.title }}{% endif %}</h1>
   {% endif %}
@@ -19,14 +19,6 @@
 
 
 <div class="{% if settings.collection_sidebar %}desktop-9 tablet-6{% else %}desktop-12 tablet-6{% endif %} mobile-3">
-
-  {% if settings.collection_sidebar == false %}
-  {% if settings.filters %}
-  <div id="full-width-filter" class="desktop-12 tablet-6 mobile-3">
-    {% include 'filter' %}
-  </div>
-  {% endif %}  
-  {% endif %}
 
   <div id="product-loop">
 

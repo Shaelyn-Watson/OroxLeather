@@ -310,8 +310,8 @@
             <input value="{{ 'general.newsletter_form.submit' | t }}" name="subscribe" id="footer-subscribe" class="button" type="submit">
           </form>
         </div>
-        <p><a href="/pages/contact-us">Find Our Store</a></p>
-        <p><a href="/pages/contact-us">Contact Us</a></p>
+        <p><a href="/pages/contact-us" style="color: #ececec;">Find Our Store</a></p>
+        <p><a href="/pages/contact-us" style="color: #ececec;">Contact Us</a></p>
       </div>      
       {% endif %}
       
@@ -319,25 +319,19 @@
         <h4>Search</h4>
         <!-- BEGIN #subs-container -->
         <div id="subs-container" class="clearfix">
-          <i class="icon-search icon-2x" style="float:left; padding: 10px 15px;"></i>
+          <i class="icon-search icon-2x" style="float:left; padding: 10px 15px; color: #ececec !important;"></i>
           <div id="search" style="float:left;">
             <form action="/search" method="get">
               <input type="text" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" />
             </form>
           </div>  
         </div>
-        <p><a href="/pages/privacy-policy">Privacy policy</a></p>
       
       </div>
       <div class="clear"></div>
 
       <div class="credit desktop-12 tablet-6 mobile-3">
         <p>COPYRIGHT © 2015 OROX LEATHER CO. • 450 NW COUCH ST. • PORTLAND, OR 97209 • 503.954.2593</p>
-        <p>
-          <a href="http://www.shopifythemes.net" target="_blank" title="Shopify theme">Shopify Theme</a>
-          {{ 'layout.footer.theme_title' | t }} Underground Media • 
-          {{ powered_by_link | replace: '" target', '?ref=undergroundmedia" target' }}
-        </p>
       </div>
     </div> 
   </div>
