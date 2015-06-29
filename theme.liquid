@@ -185,10 +185,12 @@
         {% endif %}        
 
         <ul id="cart" class="{% if settings.enable-hello %}desktop-3 {% else %}desktop-6{% endif %} tablet-6 mobile-3">
-
-          <li><a href="{{ shop.url }}"><i class="icon-home icon-2x"></i></a>
-          <li class="seeks"><a id="inline" href="#search_popup" class="open_popup"><i class="icon-search icon-2x"></i></a></li>
-          <li class="seeks-mobile"><a href="/search"><i class="icon-search icon-2x"></i></a></li>
+          <li><i class="icon-search icon-2x"></i></li>
+          <li>
+            <form action="/search" method="get">
+              <input type="text" name="q" id="q" placeholder="Search products" style="max-height: 30px !important; margin: 2px 0 0 0;"/>
+            </form>
+          </li>
           {% if shop.customer_accounts_enabled %}
           {% if customer  %}
           <li class="cust"><a href="/account"><i class="icon-user icon-2x"></i></a></li>
