@@ -70,7 +70,7 @@
   <div id="collection-loop" class="row" style="width:100%;">    
     {% for link in linklists[settings.home-collection-linklist].links limit:4%}
     {% assign collection = link.object %}
-    <div class="collection-index desktop-collection-collage tablet-half-collage mobile-half{% cycle ' first', '', '', ' last' %}" data-alpha="{{ collection.title }}">  
+    <div class="collection-index promo-inner desktop-collection-collage tablet-half-collage mobile-half{% cycle ' first', '', '', ' last' %}" data-alpha="{{ collection.title }}">  
       <div class="collection-image">
         <a href="{{ collection.url }}" title="{{ collection_title }}">
           {% if collection.image %}
@@ -113,7 +113,7 @@
         get: 'user',
         userId: {{ settings.instagram-user-id }},
         accessToken: '{{ settings.instagram-access-token }}',
-        template: '<a class="fancybox desktop-2 tablet-1 mobile-half padded" href="{{url}}" rel="ig" title="{{ caption }}"><img class="instagram-image" src="{{ url }}" /></a>'
+        template: '<a class="fancybox desktop-2 tablet-1 mobile-1" href="{{url}}" rel="ig" title="{{ caption }}"><img class="instagram-image" src="{{ url }}" /></a>'
       });
       userFeed.run();        
     </script>
