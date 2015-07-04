@@ -185,10 +185,12 @@
         {% endif %}        
 
         <ul id="cart" class="{% if settings.enable-hello %}desktop-3 {% else %}desktop-6{% endif %} tablet-6 mobile-3">
-
-          <li><a href="{{ shop.url }}"><i class="icon-home icon-2x"></i></a>
-          <li class="seeks"><a id="inline" href="#search_popup" class="open_popup"><i class="icon-search icon-2x"></i></a></li>
-          <li class="seeks-mobile"><a href="/search"><i class="icon-search icon-2x"></i></a></li>
+          <li><i class="icon-search icon-2x"></i></li>
+          <li>
+            <form action="/search" method="get">
+              <input type="text" name="q" id="q" placeholder="Search products" style="max-height: 30px !important; margin: 2px 0 0 0;"/>
+            </form>
+          </li>
           {% if shop.customer_accounts_enabled %}
           {% if customer  %}
           <li class="cust"><a href="/account"><i class="icon-user icon-2x"></i></a></li>
@@ -310,34 +312,31 @@
             <input value="{{ 'general.newsletter_form.submit' | t }}" name="subscribe" id="footer-subscribe" class="button" type="submit">
           </form>
         </div>
-        <p><a href="/pages/contact-us">Find Our Store</a></p>
-        <p><a href="/pages/contact-us">Contact Us</a></p>
+        <p><a href="/pages/contact-us" style="color: #ececec;">Find Our Store</a></p>
+        <p><a href="/pages/contact-us" style="color: #ececec;">Contact Us</a></p>
       </div>      
       {% endif %}
       
       <div class="desktop-4 mobile-3 footer-element">
         <h4>Search</h4>
         <!-- BEGIN #subs-container -->
+        <div id="search_section">
         <div id="subs-container" class="clearfix">
-          <i class="icon-search icon-2x" style="float:left; padding: 10px 15px;"></i>
+          <i class="icon-search icon-2x" style="float:left; padding: 10px 15px; color: #ececec !important;"></i>
           <div id="search" style="float:left;">
             <form action="/search" method="get">
               <input type="text" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" />
             </form>
           </div>  
         </div>
-        <p><a href="/pages/privacy-policy">Privacy policy</a></p>
-      
+      <img src="{{ '2015-Orox-Mark-White.png' | asset_url }}" style="width: 120px;">
+        <img src="{{ 'MadeinUSA_white.png' | asset_url }}" style="width: 150px;">
+        </div>
       </div>
       <div class="clear"></div>
 
       <div class="credit desktop-12 tablet-6 mobile-3">
         <p>COPYRIGHT © 2015 OROX LEATHER CO. • 450 NW COUCH ST. • PORTLAND, OR 97209 • 503.954.2593</p>
-        <p>
-          <a href="http://www.shopifythemes.net" target="_blank" title="Shopify theme">Shopify Theme</a>
-          {{ 'layout.footer.theme_title' | t }} Underground Media • 
-          {{ powered_by_link | replace: '" target', '?ref=undergroundmedia" target' }}
-        </p>
       </div>
     </div> 
   </div>
