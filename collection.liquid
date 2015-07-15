@@ -1,7 +1,7 @@
 {% paginate collection.products by 48 %}
 
 
-<div id="collection-description" class="desktop-12">
+<div id="collection-description" class="desktop-12 tablet-6 mobile-3">
   {% if settings.collection_sidebar == '0' %}
   <h1>{% if collection.handle == 'all' %}{{ 'collections.general.all_products' | t }}{% else %}{{ collection.title }}{% endif %}</h1>
   {% endif %}
@@ -17,25 +17,49 @@
 {% endif %}
 <!-- End Sidebar -->
 
-
+<!-- Start Accessories Logic -->
+{% if collection.title == "-Accessories" or collection.title == "Coti - Small Accessories" %}
+<section class="homepage-section animate wow fadeIn no-fouc">
+<div id="collection-loop" class="row subcategories">    
+  {% for link in linklists["accessories-subcategories"].links limit:4%}
+  {% assign collection = link.object %}
+  <div class="collection-index promo-inner desktop-collection-collage tablet-half-collage mobile-half{% cycle ' first', '', '', ' last' %}" data-alpha="{{ collection.title }}">  
+    <div class="collection-image">
+      <a href="{{ collection.url }}" title="{{ collection_title }}">
+        {% if collection.image %}
+        {{ collection.image.src | collection_img_url: 'grande' | img_tag: collection_title }}
+        {% else %}
+        {{ collection.products.first.featured_image | product_img_url: 'grande' | img_tag: collection_title }}
+        {% endif %}
+      </a>     
+    </div>
+     <div class="collection-info">
+    <a href="{{ collection.url }}" title="{{ collection.title }}">
+      <h3>{{ collection.title }}</h3>
+    </a>
+  </div>
+  </div>
+  {% endfor %}
+</div>
+</section>
+{%else%}
 <div class="{% if settings.collection_sidebar %}desktop-9 tablet-6{% else %}desktop-12 tablet-6{% endif %} mobile-3">
 
   <div id="product-loop">
-
     {% for product in collection.products %}
-    {% assign products-per-row = settings.products-per-row %}
-    <div id="product-{{ product.id }}" class="product-index {% if products-per-row == "6" %}desktop-2{% cycle ' first', '', '', '', '', ' last' %}{% elsif products-per-row == "4" %}desktop-3{% cycle ' first', '', '', ' last' %}{% elsif products-per-row == "3" %}desktop-4{% cycle ' first', '', ' last' %}{% elsif products-per-row == "5" %}desktop-fifth{% cycle ' first', '', '', '', ' last' %}{% elsif products-per-row == "2" %}desktop-6{% cycle ' first', ' last' %}{% endif %} tablet-half mobile-half" data-alpha="{{ product.title }}" data-price="{{ product.price }}">           
-      {% include 'product-listing' %}
-    </div>
-
+      {% assign products-per-row = settings.products-per-row %}
+      <div id="product-{{ product.id }}" class="product-index {% if products-per-row == "6" %}desktop-2{% cycle ' first', '', '', '', '', ' last' %}{% elsif products-per-row == "4" %}desktop-3{% cycle ' first', '', '', ' last' %}{% elsif products-per-row == "3" %}desktop-4{% cycle ' first', '', ' last' %}{% elsif products-per-row == "5" %}desktop-fifth{% cycle ' first', '', '', '', ' last' %}{% elsif products-per-row == "2" %}desktop-6{% cycle ' first', ' last' %}{% endif %} tablet-half mobile-half" data-alpha="{{ product.title }}" data-price="{{ product.price }}">           
+        {% include 'product-listing' %}
+      </div>
     {% endfor %} 
-
   </div>
 </div>
 
 
 {% include 'pagination' %}
-
+{% endif %}
+<!-- End Accessories Logic -->
 {% endpaginate %}
+
 
 
