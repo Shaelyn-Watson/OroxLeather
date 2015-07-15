@@ -67,7 +67,7 @@
 </section>
 {% elsif section_order == '2' %}
 <section class="homepage-section animate wow fadeIn no-fouc">
-  <div id="collection-loop" class="row" style="width:100%;">    
+  <div id="collection-loop" class="row">    
     {% for link in linklists[settings.home-collection-linklist].links limit:4%}
     {% assign collection = link.object %}
     <div class="collection-index promo-inner desktop-collection-collage tablet-half-collage mobile-half{% cycle ' first', '', '', ' last' %}" data-alpha="{{ collection.title }}">  
@@ -105,7 +105,7 @@
 <section class="homepage-section animate wow fadeIn no-fouc">
   {% assign url = '{{image}}' %}
   {% assign caption = '{{caption}}' %}
-  <div id="instagram-card" class="row" style="width:100%;">
+  <div id="instagram-card" class="row">
     <div class="section-title lines"><h2><a href="http://instagram.com/{{ settings.instagram-id }}" target="_blank">{{ 'layout.homepage.instagram' | t }} @{{ settings.instagram-id }}</a> {{ 'layout.homepage.instagram_follow_where' | t }}</h2></div>  
     <div id="instafeed"></div>
     <script type="text/javascript">
@@ -113,7 +113,7 @@
         get: 'user',
         userId: {{ settings.instagram-user-id }},
         accessToken: '{{ settings.instagram-access-token }}',
-        template: '<a class="fancybox desktop-2 tablet-1 mobile-1" href="{{url}}" rel="ig" title="{{ caption }}"><img class="instagram-image" src="{{ url }}" /></a>'
+        template: '<a id="insta-pic" class="fancybox desktop-2 tablet-1 mobile-1" href="{{url}}" rel="ig" title="{{ caption }}"><img class="instagram-image" src="{{ url }}" /></a>'
       });
       userFeed.run();        
     </script>
