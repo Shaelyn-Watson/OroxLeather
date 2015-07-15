@@ -1,10 +1,14 @@
 
 @media screen and (min-width: 1220px) {
+  #collection-loop{margin-right:auto; margin-left: auto;}
 }
 
 /* Tablet and smaller (devices and browsers) */
 
 @media screen and (min-width: 980px) and (max-width: 1220px ) {
+  .collection-info h3 { 
+    font-size: 25px;  
+  }
 }
 
 
@@ -125,6 +129,21 @@
   ul#main-nav { display: none; }
   .dl-menuwrapper { display: block! important; }  
   .mobile-hide { display: none; }
+  .gridlock .row .row {
+    width: 102.08333333%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .gridlock .row [class*="all-"],
+  .gridlock .row [class*="min-"],
+  .gridlock .row [class*="mobile-"],
+  .gridlock .row [class*="tablet-"],
+  .gridlock .row [class*="desktop-"],
+  .gridlock .row [class*="max-"] {
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
 
 
   /* Globals */
@@ -202,5 +221,8 @@
     border-bottom: 1px solid {{ settings.dotted_color }};
   }
 
+  .collection-info h3 { 
+    font-size: 15px;  
+  }
 
 }

@@ -18,9 +18,9 @@
 <!-- End Sidebar -->
 
 <!-- Start Accessories Logic -->
-{% if collection.title == "-Accessories" or collection.title == "Coti - Small Accessories" %}
+{% if collection.title == "ACCESSORIES" or collection.title == "Coti - Small Accessories" %}
 <section class="homepage-section animate wow fadeIn no-fouc">
-<div id="collection-loop" class="row subcategories">    
+<div id="collection-loop" class="row subcategories" style=" margin-top: 5%;">    
   {% for link in linklists["accessories-subcategories"].links limit:4%}
   {% assign collection = link.object %}
   <div class="collection-index promo-inner desktop-collection-collage tablet-half-collage mobile-half{% cycle ' first', '', '', ' last' %}" data-alpha="{{ collection.title }}">  
@@ -48,7 +48,7 @@
   <div id="product-loop">
     {% for product in collection.products %}
       {% assign products-per-row = settings.products-per-row %}
-      <div id="product-{{ product.id }}" class="product-index {% if products-per-row == "6" %}desktop-2{% cycle ' first', '', '', '', '', ' last' %}{% elsif products-per-row == "4" %}desktop-3{% cycle ' first', '', '', ' last' %}{% elsif products-per-row == "3" %}desktop-4{% cycle ' first', '', ' last' %}{% elsif products-per-row == "5" %}desktop-fifth{% cycle ' first', '', '', '', ' last' %}{% elsif products-per-row == "2" %}desktop-6{% cycle ' first', ' last' %}{% endif %} tablet-half mobile-half" data-alpha="{{ product.title }}" data-price="{{ product.price }}">           
+      <div id="product-{{ product.id }}" class="product-index {% if products-per-row == "6" %}desktop-2{% cycle ' first', '', '', '', '', ' last' %}{% elsif products-per-row == "4" %}desktop-3{% cycle ' first', '', '', ' last' %}{% elsif products-per-row == "3" %}desktop-4{% cycle ' first', '', ' last' %}{% elsif products-per-row == "5" %}desktop-fifth{% cycle ' first', '', '', '', ' last' %}{% elsif products-per-row == "2" %}desktop-6{% cycle ' first', ' last' %}{% endif %} tablet-half mobile-full" data-alpha="{{ product.title }}" data-price="{{ product.price }}">           
         {% include 'product-listing' %}
       </div>
     {% endfor %} 
