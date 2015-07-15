@@ -20,7 +20,7 @@
 <!-- Start Accessories Logic -->
 {% if collection.title == "ACCESSORIES" or collection.title == "Coti - Small Accessories" %}
 <section class="homepage-section animate wow fadeIn no-fouc">
-<div id="collection-loop" class="row subcategories" style=" margin-top: 5%;">    
+<div id="collection-loop" class="row">    
   {% for link in linklists["accessories-subcategories"].links limit:4%}
   {% assign collection = link.object %}
   <div class="collection-index promo-inner desktop-collection-collage tablet-half-collage mobile-half{% cycle ' first', '', '', ' last' %}" data-alpha="{{ collection.title }}">  
