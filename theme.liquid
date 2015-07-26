@@ -271,7 +271,7 @@
   </div>  <!-- End page wrap for sticky footer -->
 
   <div id="footer-wrapper"> 
-    <div id="footer" class="row" style="width:100%;">
+    <div id="footer" class="row">
 
       {% assign grid = 0 %}
       {% assign grid = grid | plus: 1 %}
@@ -306,14 +306,14 @@
           {% if settings.show_rss %}<li><a href="{{ shop.url }}/blogs/news.atom" target="_blank"><i class="icon-rss icon-2x"></i></a></li>{% endif %}
         </ul>     
         <div id="footer_signup">
-          <p>{{ settings.footer_signup_text }}</p>
+          <p style="margin-bottom: 0;">{{ settings.footer_signup_text }}</p>
           <form action="{{ settings.mailchimp }}" method="post" id="footer-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
             <input value="" name="EMAIL" class="email" id="footer-EMAIL" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" required="" type="email">
             <input value="{{ 'general.newsletter_form.submit' | t }}" name="subscribe" id="footer-subscribe" class="button" type="submit">
           </form>
         </div>
-        <p><a href="/pages/contact-us" style="color: #ececec;">Find Our Store</a></p>
-        <p><a href="/pages/contact-us" style="color: #ececec;">Contact Us</a></p>
+        <p class="large-footer-font"><a href="/pages/contact-us">Find Our Store</a></p>
+        <p class="large-footer-font"><a href="/pages/contact-us">Contact Us</a></p>
       </div>      
       {% endif %}
       
