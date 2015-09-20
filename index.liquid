@@ -185,6 +185,27 @@
   </div>
 </section>
 {% elsif section_order == '10' %}
+ <script type="text/javascript">
+   $(document).ready(function () {
+     //initiate the plugin and pass the id of the div containing gallery images
+     $("video-collage-element").elevateZoom({
+       gallery:'#video-collage-element',
+       cursor: 'pointer', 
+       galleryActiveClass: 'active', 
+       borderColour: '#eee', 
+       borderSize: '1' 
+       }); 
+
+     //pass the images to Fancybox
+     $("#video-collage-element").bind("click", function(e) { 
+       console.log('***Clicked!!!');
+       var ez =   $('#video-collage-element').data('elevateZoom');
+       $.fancybox(ez);
+     return false;
+   });    
+
+   }); 
+</script>
 {% assign grid = 0 %}
 {% if settings.promo1 %}{% assign grid = grid | plus: 1 %}{% endif %}
 {% if settings.promo2 %}{% assign grid = grid | plus: 1 %}{% endif %}
@@ -215,7 +236,7 @@
     {% endif %}
     {% assign promo = 'promo4' %}
     {% if settings.promo4 %}  
-    <div class="homepage-promo desktop-large-collage tablet-collage-large">
+    <div id='video-collage-element' class="homepage-promo desktop-large-collage tablet-collage-large">
       {% include 'homepage_promo' %}
     </div>
     {% endif %}
