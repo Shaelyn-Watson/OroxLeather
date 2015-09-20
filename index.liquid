@@ -187,19 +187,10 @@
 {% elsif section_order == '10' %}
  <script type="text/javascript">
    $(document).ready(function () {
-     //initiate the plugin and pass the id of the div containing gallery images
-     $("video-collage-element").elevateZoom({
-       gallery:'#video-collage-element',
-       cursor: 'pointer', 
-       galleryActiveClass: 'active', 
-       borderColour: '#eee', 
-       borderSize: '1' 
-       }); 
-
-     //pass the images to Fancybox
+     //pass the video collage element to Fancybox
      $("#video-collage-element").bind("click", function(e) { 
        console.log('***Clicked!!!');
-       var ez =   $('#video-collage-element').data('elevateZoom');
+       var ez =   $('#video-collage-element');
        $.fancybox(ez);
      return false;
    });    
