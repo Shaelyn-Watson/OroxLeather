@@ -1586,6 +1586,10 @@ p.empty-cart { text-align: center; margin-bottom: 0; }
   backface-visibility: hidden;
 }
 
+.homepage-promo .promo-inner .caption h3 {
+  margin-top:4.5em;
+}
+
 .homepage-promo .promo-inner .caption::before,
 .homepage-promo .promo-inner .caption::after {
   pointer-events: none;
@@ -1637,7 +1641,7 @@ p.empty-cart { text-align: center; margin-bottom: 0; }
 
 
 .promo-inner h3 {
-  margin: 10% 0 10px 0;
+  margin: 0 0 10px 0;
   -webkit-transition: -webkit-transform 0.35s;
   transition: transform 0.35s;
 }
@@ -2124,9 +2128,9 @@ td.cart-remove {
 
 
 ul#blog-articles, #blog-article { list-style-type: none; }
-.single-article { margin-bottom: 50px; padding-bottom: 20px; border-bottom: 1px solid {{ settings.dotted_color }}; float: left; width: 100%; }
-.single-article .posted { text-align: left; }
-.single-article .post-tags { text-align: left; }
+.single-article {  text-align: center; margin-bottom: 50px; padding-bottom: 20px; border-bottom: 1px solid {{ settings.dotted_color }}; float: left; width: 100%; }
+.single-article .posted { text-align: center; }
+.single-article .post-tags { text-align: center; }
 
 #blog-sidebar h2 .icon-rss {
   float: right;
@@ -2155,7 +2159,7 @@ ul#blog-articles, #blog-article { list-style-type: none; }
 }
 
 
-#page .share-icons { margin-bottom: 20px; text-align: left; margin-top: 20px;  }
+#page .share-icons { margin-bottom: 20px; margin-top: 20px;  }
 #page .share-icons a { margin-right: 10px; }
 
 ul#posts { list-style: none; }
@@ -2180,7 +2184,7 @@ dd { margin-left: 0; }
 .notice { border: 1px dashed #eee; padding: 5px; background: ghostwhite; margin: 20px 0; }
 
 
-.readmore { clear: left; text-align: left; margin: 30px auto; }
+.readmore { clear: left; text-align: center; margin: 30px auto; }
 .readmore a { color: {{ settings.read-more-link-color }}! important; background: {{ settings.read-more-background }}! important; padding: 10px 20px; -webkit-transition: background .5s ease,color .5s ease; -moz-transition: background .5s ease,color .5s ease; -o-transition: background .5s ease,color .5s ease; transition: background .5s ease,color .5s ease; }
 .readmore a:hover { color: {{ settings.read-more-link-hover-color }}! important; background: {{ settings.read-more-hover-background }}! important; text-decoration: none; }
 
