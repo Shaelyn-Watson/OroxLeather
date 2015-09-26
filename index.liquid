@@ -190,7 +190,7 @@
      //pass the video collage element to Fancybox
      $("#video-collage-element").bind("click", function(e) { 
        console.log('***Clicked!!!');
-       var ez =   $('#video-collage-element');
+       var ez =  $('#vid');
        $.fancybox(ez);
      return false;
    });    
@@ -229,6 +229,11 @@
     {% if settings.promo4 %}  
     <div id='video-collage-element' class="homepage-promo desktop-large-collage tablet-collage-large">
       {% include 'homepage_promo' %}
+    </div>
+    <div style='display: none'>
+      <div class="videoWrapper">
+        <iframe id='vid' class="orox-video" src='https://www.youtube.com/embed/YOIIXOHFTww' frameborder='0' allowfullscreen></iframe>
+      </div>
     </div>
     {% endif %}
   </div>
