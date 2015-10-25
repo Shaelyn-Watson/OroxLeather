@@ -943,14 +943,6 @@ body {
 
 img { width: 100%; border: 0; }
 img.full-width-img { width: 100%; border: 0; }
-img.page-image {
-  display: block;
-  width:auto !important; 
-  margin: 25px 0; 
-  margin-left: auto; 
-  margin-right: auto; 
-}
-
 
 /* ~~~~~~MEDIA QUERIES~~~~~~ */
 
@@ -960,6 +952,15 @@ img.page-image {
     width: 750px;
     height: 550px;
   }
+  
+  img.page-image {
+    width: auto; 
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto; 
+    margin-right: auto;
+    display: inline-block;
+  }
 }
 
 /* Desktop + Landscape Tablet */
@@ -967,6 +968,15 @@ img.page-image {
   .orox-video {
     width: 750px;
     height: 550px;
+  }
+  
+  img.page-image {
+    width: auto; 
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto; 
+    margin-right: auto;
+    display: inline-block;
   }
 }
 
@@ -976,6 +986,13 @@ img.page-image {
     width: 500px;
     height: 350px;
   }
+  
+   img.page-image {
+    width: auto;
+    margin-left: auto; 
+    margin-right: auto;
+    display: block;
+  }
 }
 
 /* Mobile */
@@ -984,6 +1001,13 @@ img.page-image {
     width: 300px;
     height: 150px;
   }
+  
+  img.page-image {
+    width: auto;
+    margin-left: auto; 
+    margin-right: auto;
+    display: block;
+  }
 }
 
 /* Mobile */
@@ -991,6 +1015,13 @@ img.page-image {
   .orox-video {
     width: 300px;
     height: 150px;
+  }
+  
+  img.page-image {
+    width: 100%;
+    margin-left: auto; 
+    margin-right: auto;
+    display: block;
   }
 }
 
@@ -7634,7 +7665,7 @@ html[xmlns] .slides {display: block;}
 
 .fancybox-skin {
   position: relative;
-  background: #636363 !important;
+  background: #dddddd !important;
   color: {{ settings.text_color }};
   text-shadow: none;
 }
@@ -7644,7 +7675,7 @@ html[xmlns] .slides {display: block;}
 }
 
 .fancybox-opened .fancybox-skin {
-  border: 1px solid #636363 !important;
+  border: 1px solid #dddddd !important;
 }
 
 .fancybox-outer, .fancybox-inner {
@@ -7733,7 +7764,7 @@ html[xmlns] .slides {display: block;}
 
 .fancybox-close {
   color: {{ settings.quickview_color }};
-  background: #636363 !important;   
+  background: #dddddd !important;   
   position: absolute;
   top: -10px;
   right: -10px;
