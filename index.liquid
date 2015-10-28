@@ -185,6 +185,18 @@
   </div>
 </section>
 {% elsif section_order == '10' %}
+ <script type="text/javascript">
+   $(document).ready(function () {
+     //pass the video collage element to Fancybox
+     $("#video-collage-element").bind("click", function(e) { 
+       console.log('***Clicked!!!');
+       var ez =  $('#vid');
+       $.fancybox(ez);
+     return false;
+   });    
+
+   }); 
+</script>
 {% assign grid = 0 %}
 {% if settings.promo1 %}{% assign grid = grid | plus: 1 %}{% endif %}
 {% if settings.promo2 %}{% assign grid = grid | plus: 1 %}{% endif %}
@@ -215,8 +227,13 @@
     {% endif %}
     {% assign promo = 'promo4' %}
     {% if settings.promo4 %}  
-    <div class="homepage-promo desktop-large-collage tablet-collage-large">
+    <div id='video-collage-element' class="homepage-promo desktop-large-collage tablet-collage-large">
       {% include 'homepage_promo' %}
+    </div>
+    <div style='display: none'>
+      <div class="videoWrapper">
+        <iframe id='vid' class="orox-video" src='https://www.youtube.com/embed/YOIIXOHFTww' frameborder='0' allowfullscreen></iframe>
+      </div>
     </div>
     {% endif %}
   </div>
