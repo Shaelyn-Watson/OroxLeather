@@ -17,10 +17,19 @@
       </div>
 
       {% elsif settings.homepage-display == 'slideshow' %}
+      <script type="text/javascript">
+         $(document).ready(function () {
+           //pass the video collage element to Fancybox
+           $("#video-slide-element").bind("click", function(e) { 
+             console.log('***Clicked!!!');
+             var ez =  $('#vidSlide');
+             $.fancybox(ez);
+           return false;
+         });    
+         }); 
+      </script>
     <div class="flexslider">
           <ul class="slides">
-
-
             {% for i in (1..5) %}
             {% assign slide_show = 'slide-' | append: i | append: '-check' %}
 
@@ -35,9 +44,17 @@
             {% assign slide_button_text = 'slide-' | append: i | append: '-button-text' %}        
 
             <li>
-              <a href="{{ settings[slide_link_url] }}">
-                <img src="{{ slide_img_url | asset_url }}" alt="{{ settings[slide_img_alt] }}" />
-              </a>
+              <img id='video-slide-element' src="{{ slide_img_url | asset_url }}" alt="{{ settings[slide_img_alt] }}" />
+                {% if settings[slide_link_url] contains 'youtube'%} 
+                  <div style='display: none'>
+                    <div class="videoWrapper">
+                      <iframe id='vidSlide' class="orox-video" src='{{ settings[slide_link_url] }}' frameborder='0' allowfullscreen></iframe>
+                    </div>
+                  </div>
+                {% else if settings[slide_link_url] %}
+                  <!-- TODO: handle normal click--->
+               
+                {% endif %}
               <div class="flex-caption {{ index }}">
           {% if settings[slide_title] != blank %}                        
                 <h2 class="slide-title">{{ settings[slide_title] }}</h2>
@@ -189,7 +206,6 @@
    $(document).ready(function () {
      //pass the video collage element to Fancybox
      $("#video-collage-element").bind("click", function(e) { 
-       console.log('***Clicked!!!');
        var ez =  $('#vid');
        $.fancybox(ez);
      return false;

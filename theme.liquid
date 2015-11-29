@@ -188,6 +188,7 @@
           <li><i class="icon-search icon-2x"></i></li>
           <li>
             <form action="/search" method="get">
+              <input type="hidden" name="type" value="product" />
               <input type="text" name="q" id="q" placeholder="Search products" style="max-height: 30px !important; margin: 2px 0 0 0;"/>
             </form>
           </li>
@@ -325,6 +326,7 @@
             <i class="icon-search icon-2x" style="float:left; padding: 10px 15px; color: #ececec !important;"></i>
             <div id="search" style="float:left;">
               <form action="/search" method="get">
+                <input type="hidden" name="type" value="product" />
                 <input type="text" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" />
               </form>
             </div>  
@@ -355,6 +357,7 @@
       <div id="subs-container" class="clearfix">
         <div id="search">
           <form action="/search" method="get">
+            <input type="hidden" name="type" value="product" />
             <input type="text" name="q" id="q" placeholder="{{ 'general.search.placeholder' | t }}" />
           </form>
         </div>  
