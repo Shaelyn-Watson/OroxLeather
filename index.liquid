@@ -44,17 +44,19 @@
             {% assign slide_button_text = 'slide-' | append: i | append: '-button-text' %}        
 
             <li>
-              <img id='video-slide-element' src="{{ slide_img_url | asset_url }}" alt="{{ settings[slide_img_alt] }}" />
-                {% if settings[slide_link_url] contains 'youtube'%} 
-                  <div style='display: none'>
-                    <div class="videoWrapper">
-                      <iframe id='vidSlide' class="orox-video" src='{{ settings[slide_link_url] }}' frameborder='0' allowfullscreen></iframe>
-                    </div>
+              {% if settings[slide_link_url] contains 'youtube'%}
+                <img id='video-slide-element' src="{{ slide_img_url | asset_url }}" alt="{{ settings[slide_img_alt] }}" /> 
+                <div style='display: none'>
+                  <div class="videoWrapper">
+                    <iframe id='vidSlide' class="orox-video" src='{{ settings[slide_link_url] }}' frameborder='0' allowfullscreen></iframe>
                   </div>
-                {% else if settings[slide_link_url] %}
-                  <!-- TODO: handle normal click--->
-               
-                {% endif %}
+                </div>
+              {% else if settings[slide_link_url] %}
+                <!-- TODO: handle normal click--->
+                <a href="{{ settings[slide_link_url] }}">
+                  <img id='video-slide-element' src="{{ slide_img_url | asset_url }}" alt="{{ settings[slide_img_alt] }}" />
+                </a>
+              {% endif %}
               <div class="flex-caption {{ index }}">
           {% if settings[slide_title] != blank %}                        
                 <h2 class="slide-title">{{ settings[slide_title] }}</h2>
