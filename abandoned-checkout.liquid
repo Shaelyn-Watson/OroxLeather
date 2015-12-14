@@ -1,72 +1,67 @@
 <head>
 	<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet' type='text/css'>
-	<style>
-		a {font-family: 'Glegoo', serif;}
-		p {font-family: 'Glegoo', serif;}
-		body {background:#dddddd;}
-	</style>
 </head>
-<body>
-<tbody>
-	<tr>
-		<div style="background:#444444; border-radius: 2px; margin-top: 5px; padding:35px;">
-			<center>{{ 'logo.png' | asset_url | img_tag }}</center>
-		</div>
-	</tr>
-	<tr>
-		<div style='margin: 30px 15px 15px 15px; float: right;'>
-			<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/about-us">Our Story > </a>
-		</div>
-	
-		<div style='margin: 30px 15px 15px 15px; float: right;'>
-			<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/meet-the-family">Meet the Family > </a>
-		</div>
-	
-		<div style='margin: 30px 15px 15px 15px; float: right;'>
-			<a <a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="https://instagram.com/oroxleatherco/?hl=en">Instagram > </a>
-		</div>
-	</tr>
-	<tr>
-		<p style="margin: 100px 15px 15px 15px;">Hello{% if billing_address.name %} {{ billing_address.name }}{% endif %},</p>
-	</tr>
-	<tr>
-		<p style="margin: 15px;">Thank you for your recent visit to our website - we very much appreciate you taking the time to view some of the products that we make here at Orox Leather!</p>
-	</tr>
-	<tr>
-		<div style="margin: 40px 20px 0px 20px;">
-			<p>In your cart, you left:</p>
-		</div>
-	</tr>
-	<tr>
-		<div style="margin: 40px 20px 0px 20px;">
+<div style="background:#dddddd; font-family: 'Glegoo', serif; ">
+	<tbody>
+		<tr>
+			<div style="background:#444444; border-radius: 2px; margin-top: 5px; padding:35px;">
+				<center>{{ 'logo.png' | asset_url | img_tag }}</center>
+			</div>
+		</tr>
+		<tr>
+			<div style='margin: 30px 15px 15px 15px; float: right;'>
+				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/about-us">Our Story > </a>
+			</div>
+		
+			<div style='margin: 30px 15px 15px 15px; float: right;'>
+				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/meet-the-family">Meet the Family > </a>
+			</div>
+		
+			<div style='margin: 30px 15px 15px 15px; float: right;'>
+				<a <a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="https://instagram.com/oroxleatherco/?hl=en">Instagram > </a>
+			</div>
+		</tr>
+		<tr>
+			<p style="margin: 100px 15px 15px 15px;">Hello{% if billing_address.name %} {{ billing_address.name }}{% endif %},</p>
+		</tr>
+		<tr>
+			<p style="margin: 15px;">Thank you for your recent visit to our website - we very much appreciate you taking the time to view some of the products that we make here at Orox Leather!</p>
+		</tr>
+		<tr>
+			<div style="margin: 40px 20px 0px 20px;">
+				<p>In your cart, you left:</p>
+			</div>
+		</tr>
+		<tr>
+			<div style="margin: 40px 20px 0px 20px;">
+				<center>
+					<div style="margin: 25px;">
+						{% for line in line_items %}
+							<div style="">
+								<img src="{{ line.product.featured_image | product_img_url: 'thumb' }}" />
+								<p>{{ line.quantity }}x {{ line.title }}</p>
+							</div>
+						{% endfor %}
+					</div>
+				</center>
+			</div>
+		</tr>
+		<tr>
+			<p style='margin: 45px 15px 45px 15px;'>But it's not too late! To complete your purchase, click this link:</p>
+		</tr>
+		<tr>
 			<center>
-				<div style="margin: 25px;">
-					{% for line in line_items %}
-						<div style="">
-							<img src="{{ line.product.featured_image | product_img_url: 'thumb' }}" />
-							<p>{{ line.quantity }}x {{ line.title }}</p>
-						</div>
-					{% endfor %}
+				<div style='margin: 30px 50px;'>
+					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ url }}>Back to store > </a>
 				</div>
 			</center>
-		</div>
-	</tr>
-	<tr>
-		<p style='margin: 45px 15px 45px 15px;'>But it's not too late! To complete your purchase, click this link:</p>
-	</tr>
-	<tr>
-		<center>
-			<div style='margin: 30px 50px;'>
-				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ url }}>Back to store > </a>
-			</div>
-		</center>
-	</tr>
-	<tr>
-		<p style="margin: 45px 20px 0 15px;">Again, thank you for visiting, and we look forward to the opportunity to provide you great heritage leather goods.</p>
-	</tr>
-	<tr>
-		<p style="margin: 20px 15px;">Best regards,</p>
-		<p style="margin: 40px; background:#dddddd;">The Martinez Family</p>
-	</tr>
-</tbody>
-</body>
+		</tr>
+		<tr>
+			<p style="margin: 45px 20px 0 15px;">Again, thank you for visiting, and we look forward to the opportunity to provide you great heritage leather goods.</p>
+		</tr>
+		<tr>
+			<p style="margin: 40px 20px 0 20px;">Best regards,</p>
+			<p style="margin: 40px; background:#dddddd;">The Martinez Family</p>
+		</tr>
+	</tbody>
+</div>
