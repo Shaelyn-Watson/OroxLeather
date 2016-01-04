@@ -4,50 +4,48 @@
 <div style="background:#dddddd; font-family: 'Glegoo', serif; ">
 	<tbody>
 		<tr>
-			<div style="background:#444444; border-radius: 2px; margin-top: 5px; padding:35px;">
+			<div style="background:#444444; border-radius: 2px; padding:35px;">
 				<center><a target="_blank" href="http://www.oroxleather.com/">{{ 'logo.png' | asset_url | img_tag }}</a></center>
 			</div>
 		</tr>
 		<tr>
-				<div style='margin: 30px 15px 15px 15px; float: right;'>
+			<div style='margin: 30px 15px 15px 15px; float: right;'>
 				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/about-us">Our Story > </a>
 			</div>
 		
-				<div style='margin: 30px 15px 15px 15px; float: right;'>
+			<div style='margin: 30px 15px 15px 15px; float: right;'>
 				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/meet-the-family">Meet the Family > </a>
 			</div>
 		
-				<div style='margin: 30px 15px 15px 15px; float: right;'>
+			<div style='margin: 30px 15px 15px 15px; float: right;'>
 				<a <a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="https://instagram.com/oroxleatherco/?hl=en">Instagram > </a>
 			</div>
 		</tr>
 		<tr>
-			<p style="margin: 10px 50px;">Hello{% if billing_address.name %} {{ billing_address.name }}{% endif %},</p>
+			<p style="text-align: center;">Hello{% if billing_address.name %} {{ billing_address.name }}{% endif %},</p>
 		</tr>
 		<tr>
-			<p style="margin: 0 50px;">Thank you for your recent visit to our website - we very much appreciate you taking the time to view some of the products that we make here at Orox Leather!</p>
+			<center>
+			<p style="text-align: center;">Thank you for your recent visit to our website. We very much appreciate you taking the time to view some of the products that we make here at Orox Leather!</p>
+			</center>
 		</tr>
 		<tr>
-			<div style="margin: 0 50px;">
-				<p>In your cart, you left:</p>
-			</div>
+			<p style="text-align: center;" >In your cart, you left:</p>
 		</tr>
 		<tr>
-			<div style="margin: 40px 20px 0px 20px;">
-				<center>
-					<div style="margin: 25px;">
-						{% for line in line_items %}
-							<div style="margin: 0 50px;">
-								<img src="{{ line.product.featured_image | product_img_url: 'thumb' }}" />
-								<p>{{ line.quantity }}x {{ line.title }}</p>
-							</div>
-						{% endfor %}
-					</div>
-				</center>
-			</div>
+			<center>
+				<div style="margin: 25px;">
+					{% for line in line_items %}
+						<div style="margin: 0 50px;">
+							<img src="{{ line.product.featured_image | product_img_url: 'thumb' }}" />
+							<p>{{ line.quantity }}x {{ line.title }}</p>
+						</div>
+					{% endfor %}
+				</div>
+			</center>
 		</tr>
 		<tr>
-			<p style="margin: 0 50px;">But it's not too late! To complete your purchase, click this link:</p>
+			<p style="text-align: center;">But it's not too late! To complete your purchase, click this link:</p>
 		</tr>
 		<tr>
 			<center>
@@ -57,11 +55,11 @@
 			</center>
 		</tr>
 		<tr>
-			<p style="margin: 5px 50px;">Again, thank you for visiting, and we look forward to the opportunity to provide you great heritage leather goods.</p>
+			<p style="text-align: center;">Again, thank you for visiting, and we look forward to the opportunity to provide you great heritage leather goods.</p>
 		</tr>
 		<tr>
-			<p style="margin: 30px 50px">Best regards,</p>
-			<p style="margin: 0 60px; background:#dddddd;">The Martinez Family</p>
+			<p style="text-align: center;">Best regards,</p>
+			<p style="text-align: center; background:#dddddd;">The Martinez Family</p>
 		</tr>
 		<tr>
 			<div style="border-radius: 2px; margin-top: 5px; padding:35px;">
@@ -69,19 +67,18 @@
 			</div>
 		</tr>
 		<tr style="background:#212322;">
-				<div style='margin: 30px 15px 15px 5%; float: left;'> 
-					<a target="_blank" href="http://www.oroxleather.com/"> {{ 'email-madeinusa.png' | asset_url | img_tag }}</a> 
+			<div style='margin: 30px 15px 15px 30px; float: left;'> 
+				<a target="_blank" href="http://www.oroxleather.com/"> {{ 'email-madeinusa.png' | asset_url | img_tag }}</a> 
+			</div>
+			<div style='margin: 30px 15px 15px 5px; float: right;'>
+				<h2 style="color:#ffffff; margin: 15px; text-align: center;">Keep in touch</h2> 
+				<div style="display:block;">
+					<a style="margin: 15px 20px;" href="https://www.facebook.com/oroxleather" target="_blank">{{ 'facebook.png' | asset_url | img_tag }}</a>
+					<a style="margin: 15px 15px;" target="_blank" href="https://www.pinterest.com/oroxleather"> {{ 'pinterest.png' | asset_url | img_tag }}</a>
+					<a style="margin: 15px 15px;" href="https://twitter.com/OroxLeatherCo" target="_blank"> {{ 'twitter.png' | asset_url | img_tag }}</a>
+					<a style="margin: 15px 15px;" target="_blank" href="https://www.instagram.com/oroxleatherco"> {{ 'instagram.png' | asset_url | img_tag }}</a>
 				</div>
-				<div style='margin: 30px 15px 15px 5px; float: right;'>
-					<h2 style="color:#ffffff; display:inline;">Keep in touch </h2> 
-					<div style="display:block;">
-						<a style="margin: 60px 25px 15px 35px;" href="https://www.facebook.com/oroxleather" target="_blank">{{ 'facebook.png' | asset_url | img_tag }}</a>
-						<a style="margin: 60px 15px 15px 5px;" target="_blank" href="https://www.pinterest.com/oroxleather"> {{ 'pinterest.png' | asset_url | img_tag }}</a>
-						<a style="margin: 60px 15px 15px 5px;" href="https://twitter.com/OroxLeatherCo" target="_blank"> {{ 'twitter.png' | asset_url | img_tag }}</a>
-						<a style="margin: 60px 15px 15px 5px;" target="_blank" href="https://www.instagram.com/oroxleatherco"> {{ 'instagram.png' | asset_url | img_tag }}</a>
-					</div>
-					<p style="font-size:8px; color:#ffffff; max-width:250px;">You are receiving this email because you either signed up on our website or you left something in your shopping cart.</p>
-				</div>
+			</div>
 		</tr>
 	</tbody>
 </div>
