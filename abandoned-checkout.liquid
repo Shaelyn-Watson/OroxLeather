@@ -4,7 +4,7 @@
 <div style="background:#dddddd; font-family: 'Glegoo', serif; ">
 	<tbody>
 		<tr>
-			<div style="background:#444444; border-radius: 2px; padding:35px;">
+			<div style="width: 100%; background:#444444; border-radius: 2px; padding:35px;">
 				<center><a target="_blank" href="http://www.oroxleather.com/">{{ 'logo.png' | asset_url | img_tag }}</a></center>
 			</div>
 		</tr>
@@ -22,19 +22,20 @@
 			</div>
 		</tr>
 		<tr>
-			<p style="text-align: center;">Hello{% if billing_address.name %} {{ billing_address.name }}{% endif %},</p>
+			<p style="line-height: 30px; text-align: center; margin: 35px 5% 15px 5%;">Hello{% if billing_address.name %} {{ billing_address.name }}{% endif %},</p>
 		</tr>
 		<tr>
 			<center>
-			<p style="text-align: center;">Thank you for your recent visit to our website. We very much appreciate you taking the time to view some of the products that we make here at Orox Leather!</p>
+			<p style="line-height: 30px; text-align: center; margin: 0 5%;">Thank you for your recent visit to our website. </p>
+			<p style="line-height: 30px; text-align: center; margin: 0 5%;">We very much appreciate you taking the time to view some of the products that we make here at Orox Leather!</p>
 			</center>
 		</tr>
 		<tr>
-			<p style="text-align: center;" >In your cart, you left:</p>
+			<p style="line-height: 30px; text-align: center; margin: 30px 5% 0 5%; font-weight: bold;">In your cart, you left:</p>
 		</tr>
 		<tr>
 			<center>
-				<div style="margin: 25px;">
+				<div style="margin: 10px 25px 25px 25px;">
 					{% for line in line_items %}
 						<div style="margin: 0 50px;">
 							<img src="{{ line.product.featured_image | product_img_url: 'thumb' }}" />
@@ -45,7 +46,7 @@
 			</center>
 		</tr>
 		<tr>
-			<p style="text-align: center;">But it's not too late! To complete your purchase, click this link:</p>
+			<p style="line-height: 30px; text-align: center; margin: 0 5%;">But it's not too late! To complete your purchase, click this link:</p>
 		</tr>
 		<tr>
 			<center>
@@ -55,11 +56,13 @@
 			</center>
 		</tr>
 		<tr>
-			<p style="text-align: center;">Again, thank you for visiting, and we look forward to the opportunity to provide you great heritage leather goods.</p>
+			<p style="line-height: 30px; text-align: center; margin: 0 5%;">Again, thank you for visiting, and we look forward to the opportunity to provide you great heritage leather goods.</p>
 		</tr>
 		<tr>
-			<p style="text-align: center;">Best regards,</p>
-			<p style="text-align: center; background:#dddddd;">The Martinez Family</p>
+			<div style="margin: 30px;">
+				<p style="line-height: 30px; text-align: center; margin: 0 5%;">Best regards,</p>
+				<p style="line-height: 30px; text-align: center; background:#dddddd; margin: 0 5%;">The Martinez Family</p>
+			</div>	
 		</tr>
 		<tr>
 			<div style="border-radius: 2px; margin-top: 5px; padding:35px;">
@@ -67,11 +70,11 @@
 			</div>
 		</tr>
 		<tr style="background:#212322;">
-			<div style='margin: 30px 15px 15px 30px; float: left;'> 
+			<div style='margin: 30px 15px 15px 30px; float: left; margin: 0 5%;'> 
 				<a target="_blank" href="http://www.oroxleather.com/"> {{ 'email-madeinusa.png' | asset_url | img_tag }}</a> 
 			</div>
-			<div style='margin: 30px 15px 15px 5px; float: right;'>
-				<h2 style="color:#ffffff; margin: 15px; text-align: center;">Keep in touch</h2> 
+			<div style='margin: 0 5%; float: right;'>
+				<h2 style="color:#ffffff; margin: 15px; text-align: center;">Keep in touch >> </h2> 
 				<div style="display:block;">
 					<a style="margin: 15px 20px;" href="https://www.facebook.com/oroxleather" target="_blank">{{ 'facebook.png' | asset_url | img_tag }}</a>
 					<a style="margin: 15px 15px;" target="_blank" href="https://www.pinterest.com/oroxleather"> {{ 'pinterest.png' | asset_url | img_tag }}</a>
