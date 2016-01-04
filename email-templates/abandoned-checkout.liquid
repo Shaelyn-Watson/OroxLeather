@@ -1,0 +1,86 @@
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet' type='text/css'>
+</head>
+<div style="background:#dddddd; font-family: 'Glegoo', serif; ">
+	<tbody>
+		<tr id="header" style="background:#444444;">
+			<div>
+				<center><a target="_blank" href="http://www.oroxleather.com/">{{ 'logo.png' | asset_url | img_tag }}</a></center>
+			</div>
+		</tr>
+		<tr id="nav-bar">
+			<div style='margin: 30px 10% 0 15px; float: right;'>
+				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/about-us">Our Story > </a>
+			</div>
+		
+			<div style='margin: 30px 15px 0 15px; float: right;'>
+				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/meet-the-family">Meet the Family > </a>
+			</div>
+		
+			<div style='margin: 30px 15px 0 15px; float: right;'>
+				<a <a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="https://instagram.com/oroxleatherco/?hl=en">Instagram > </a>
+			</div>
+		</tr>
+		<tr id="hello-templating">
+			<p style="color:#dddddd;">````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````</p>
+			<p style="line-height: 30px; text-align: center; margin: 5px 5% 15px 5%;">Hello{% if billing_address.name %} {{ billing_address.name }}{% endif %},</p>
+		</tr>
+		<tr id="body-0">
+			<center>
+				<p style="line-height: 30px; text-align: center; margin: 0 5%;">Thank you for your recent visit to our website. </p>
+				<p style="line-height: 30px; text-align: center; margin: 0 5%;">We very much appreciate you taking the time to view some of the products that we make here at Orox Leather!</p>
+			</center>
+		</tr>
+		<tr id="body-1">
+			<p style="line-height: 30px; text-align: center; margin: 30px 5% 0 5%; font-weight: bold;">In your cart, you left:</p>
+		</tr>
+		<tr id="body-2">
+			<center>
+				<div style="margin: 10px 25px 25px 25px;">
+					{% for line in line_items %}
+						<div style="margin: 0 50px;">
+							<img src="{{ line.product.featured_image | product_img_url: 'thumb' }}" />
+							<p>{{ line.title }} ({{ line.quantity }})</p>
+						</div>
+					{% endfor %}
+				</div>
+			</center>
+		</tr>
+		<tr id="body-3">
+			<p style="line-height: 30px; text-align: center; margin: 0 5%;">But it's not too late! To complete your purchase, click this link:</p>
+		</tr>
+		<tr id="back-to-store">
+			<center>
+				<div style='margin: 2em 50px;'>
+					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ url }}>Back to store > </a>
+				</div>
+			</center>
+		</tr>
+		<tr id="body-5">
+			<p style="line-height: 30px; text-align: center; margin: 0 5%;">Again, thank you for visiting, and we look forward to the opportunity to provide you great heritage leather goods.</p>
+		</tr>
+		<tr id="signature">
+			<div style="margin: 30px;">
+				<p style="line-height: 30px; text-align: center; margin: 0 5%;">Best regards,</p>
+				<p style="line-height: 30px; text-align: center; background:#dddddd; margin: 0 5%;">The Martinez Family</p>
+			</div>	
+		</tr>
+		<tr id="signature-photo">
+			<center>{{ 'family-small.png' | asset_url | img_tag }}</center>
+		</tr>
+		<tr id="footer" style="background:#212322;">
+			<div style='float: right; margin: 0 12% 0 0;'> 
+				<a target="_blank" href="http://www.oroxleather.com/"> {{ 'email-madeinusa.png' | asset_url | img_tag }}</a> 
+			</div>
+			<div style='margin: 0 10x 0 0; float: right;'>
+				<h2 style="color:#ffffff; margin: 15px; text-align: center;">Keep in touch >> </h2> 
+				<div style="display:block;">
+					<a style="margin: 15px 20px;" href="https://www.facebook.com/oroxleather" target="_blank">{{ 'facebook.png' | asset_url | img_tag }}</a>
+					<a style="margin: 15px 15px;" target="_blank" href="https://www.pinterest.com/oroxleather"> {{ 'pinterest.png' | asset_url | img_tag }}</a>
+					<a style="margin: 15px 15px;" href="https://twitter.com/OroxLeatherCo" target="_blank"> {{ 'twitter.png' | asset_url | img_tag }}</a>
+					<a style="margin: 15px 15px;" target="_blank" href="https://www.instagram.com/oroxleatherco"> {{ 'instagram.png' | asset_url | img_tag }}</a>
+				</div>
+			</div>
+		</tr>
+	</tbody>
+</div>
