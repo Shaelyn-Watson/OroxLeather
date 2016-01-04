@@ -21,9 +21,8 @@
 				<a <a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="https://instagram.com/oroxleatherco/?hl=en">Instagram > </a>
 			</div>
 		</tr>
-		<tr id="hello-templating">
-			<p style="color:#dddddd;">````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````</p>
-			<p style="line-height: 30px; text-align: center; margin: 5px 5% 15px 5%;">Hello{% if billing_address.name %} {{ billing_address.name }}{% endif %},</p>
+		<tr id="hello">
+			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if customer.name %}{{ customer.name }},{% endif %}</p>
 		</tr>
 		<tr id="body-0">
 			<center>
@@ -49,7 +48,7 @@
 		<tr id="body-3">
 			<p style="line-height: 30px; text-align: center; margin: 0 5%;">But it's not too late! To complete your purchase, click this link:</p>
 		</tr>
-		<tr id="back-to-store">
+		<tr id="action-button">
 			<center>
 				<div style='margin: 2em 50px;'>
 					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ url }}>Back to store > </a>
@@ -66,7 +65,10 @@
 			</div>	
 		</tr>
 		<tr id="signature-photo">
-			<center>{{ 'family-small.png' | asset_url | img_tag }}</center>
+			<center>
+				{{ 'family-small.png' | asset_url | img_tag }}
+				<p style="color:#dddddd;">````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````</p>
+			</center>
 		</tr>
 		<tr id="footer" style="background:#212322;">
 			<div style='float: right; margin: 0 12% 0 0;'> 

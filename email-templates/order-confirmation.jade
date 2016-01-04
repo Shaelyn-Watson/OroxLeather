@@ -25,7 +25,23 @@
 			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if customer.name %}{{ customer.name }},{% endif %}</p>
 		</tr>
 		<tr id="body-0">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;"></p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Thank you for placing your order with {{ shop_name }}!</p>
+		</tr>
+		<tr id="body-1">
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">This email is to confirm your recent order.</p>
+		</tr>
+		<tr id="body-2">
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;"> Date {{ date | date: "%m/%d/%Y" }}</p>
+			{% if requires_shipping %}
+				<p style="margin: 0 5%; font-weight: bold; line-height: 30px; text-align: center;">Shipping address</p>
+				<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ shipping_address.name }}</p>
+				<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ shipping_address.street }}</p>
+				<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ shipping_address.city }}, {{ shipping_address.province }} {{ shipping_address.zip }} {{ shipping_address.country }}</p>
+			{% endif %}
+			<p style="margin: 0 5%; font-weight: bold; line-height: 30px; text-align: center;">Billing address</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ billing_address.name }}</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ billing_address.street }}</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{ billing_address.city }}, {{ billing_address.province }} {{ billing_address.zip }} {{ billing_address.country }}</p>
 		</tr>
 		<tr id="action-button">
 			<center>

@@ -22,17 +22,23 @@
 			</div>
 		</tr>
 		<tr id="hello">
-			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if customer.name %}{{ customer.name }},{% endif %}</p>
+			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if gift_card.customer %}{{ gift_card.customer.first_name }}{% endif %},</p>
 		</tr>
 		<tr id="body-0">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;"></p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Here is your {{ shop.name }} gift card for {{ gift_card.initial_value | money_without_trailing_zeros }}.</p>
+		</tr>
+		<tr id="body-1">
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">To view or print your gift card, visit the link below:</p>
 		</tr>
 		<tr id="action-button">
 			<center>
 				<div style='margin: 2em 50px;'>
-					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ url }}>Back to store > </a>
+					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ gift_card.url }}>Go to gift card > </a>
 				</div>
 			</center>
+		</tr>
+		<tr id="body-2">
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Purchased this gift card for someone else? Forward them this email :-)</p>
 		</tr>
 		<tr id="signature">
 			<div style="margin: 30px;">
