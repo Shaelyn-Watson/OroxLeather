@@ -9,29 +9,28 @@
 			</div>
 		</tr>
 		<tr id="nav-bar">
-			<div style='margin: 30px 10% 0 15px; float: right;'>
-				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/about-us">Our Story > </a>
-			</div>
-		
-			<div style='margin: 30px 15px 0 15px; float: right;'>
-				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/meet-the-family">Meet the Family > </a>
-			</div>
-		
-			<div style='margin: 30px 15px 0 15px; float: right;'>
-				<a <a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="https://instagram.com/oroxleatherco/?hl=en">Instagram > </a>
-			</div>
+			<center>
+				<div style='margin: 30px 15px 0 15px; display: inline-block;'>
+					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/about-us">Our Story > </a>
+				</div>
+			
+				<div style='margin: 30px 15px 0 15px; display: inline-block;'>
+					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/meet-the-family">Meet the Family > </a>
+				</div>
+			
+				<div style='margin: 30px 15px 0 15px; display: inline-block;'>
+					<a <a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="https://instagram.com/oroxleatherco/?hl=en">Instagram > </a>
+				</div>
+			</center>
 		</tr>
 		<tr id="hello">
 			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if customer.name %}{{ customer.name }},{% endif %}</p>
 		</tr>
 		<tr id="body-0">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Thank you for placing your order with {{ shop_name }}!</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Thank you for placing your order with {{ shop_name }}! This email is to confirm your recent order.</p>
 		</tr>
 		<tr id="body-1">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">This email is to confirm your recent order.</p>
-		</tr>
-		<tr id="body-2">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;"> Date {{ date | date: "%m/%d/%Y" }}</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;"> ---------- Date {{ date | date: "%m/%d/%Y" }} ---------- </p>
 			{% if requires_shipping %}
 				<p style="margin: 0 5%; font-weight: bold; line-height: 30px; text-align: center;">Shipping address</p>
 				<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ shipping_address.name }}</p>
@@ -41,11 +40,34 @@
 			<p style="margin: 0 5%; font-weight: bold; line-height: 30px; text-align: center;">Billing address</p>
 			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ billing_address.name }}</p>
 			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ billing_address.street }}</p>
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{ billing_address.city }}, {{ billing_address.province }} {{ billing_address.zip }} {{ billing_address.country }}</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ billing_address.city }}, {{ billing_address.province }} {{ billing_address.zip }} {{ billing_address.country }}</p>
+		</tr>
+		<tr id="body-2">
+			<center>
+				<div style="margin: 10px 25px 25px 25px;">
+					{% for line in line_items %}
+						<div style="margin: 0 50px;">
+							<img src="{{ line.image | product_img_url: 'thumb' }}" />
+							<p>{{ line.title }} ({{ line.quantity }}) {{ line.line_price | money_with_currency }}</p>
+						</div>
+					{% endfor %}
+				</div>
+			</center>
+		</tr>
+		<tr id="body-3">
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{% if discounts %}Discounts : {{ discounts_savings | money_with_currency }}{% endif %}</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Subtotal  : {{ subtotal_price | money_with_currency  }}</p>
+			{% for tax_line in tax_lines %}
+				<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ tax_line.title }}       : {{ tax_line.price | money_with_currency  }}</p>
+			{% endfor %}
+			{% if requires_shipping %}
+				<p style="margin: 0 5%; line-height: 30px; text-align: center;">Shipping  : {{ shipping_price | money_with_currency }}</p>
+			{% endif %}
+			<p style="margin: 0 5%; font-weight: bold; line-height: 30px; text-align: center;"> ---------- Total     : {{ total_price | money_with_currency }} ---------- </p>
 		</tr>
 		<tr id="action-button">
 			<center>
-				<div style='margin: 2em 50px;'>
+				<div style='margin: 50px 50px 0 50px;'>
 					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ url }}>Back to store > </a>
 				</div>
 			</center>

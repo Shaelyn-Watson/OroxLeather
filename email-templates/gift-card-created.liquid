@@ -9,29 +9,38 @@
 			</div>
 		</tr>
 		<tr id="nav-bar">
-			<div style='margin: 30px 10% 0 15px; float: right;'>
-				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/about-us">Our Story > </a>
-			</div>
-		
-			<div style='margin: 30px 15px 0 15px; float: right;'>
-				<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/meet-the-family">Meet the Family > </a>
-			</div>
-		
-			<div style='margin: 30px 15px 0 15px; float: right;'>
-				<a <a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="https://instagram.com/oroxleatherco/?hl=en">Instagram > </a>
-			</div>
+			<center>
+				<div style='margin: 30px 15px 0 15px; display: inline-block;'>
+					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/about-us">Our Story > </a>
+				</div>
+			
+				<div style='margin: 30px 15px 0 15px; display: inline-block;'>
+					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="http://www.oroxleather.com/pages/meet-the-family">Meet the Family > </a>
+				</div>
+			
+				<div style='margin: 30px 15px 0 15px; display: inline-block;'>
+					<a <a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href="https://instagram.com/oroxleatherco/?hl=en">Instagram > </a>
+				</div>
+			</center>
 		</tr>
 		<tr id="hello">
-			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if billing_address.name %}{{ billing_address.name }},{% endif %}</p>
+			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if gift_card.customer %}{{ gift_card.customer.first_name }}{% endif %},</p>
 		</tr>
 		<tr id="body-0">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Your order {{ name }} was cancelled {% case cancel_reason %}{% when 'customer' %}at your request.{% when 'inventory' %}because we did not have enough stock to fulfill your order.{% when 'fraud' %}because we suspect it is fraudulent.{% when 'other' %}due to unforeseen circumstances.{% endcase %}</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Here is your {{ shop.name }} gift card for {{ gift_card.initial_value | money_without_trailing_zeros }}.</p>
 		</tr>
 		<tr id="body-1">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{% if financial_status == 'voided' %}Your payment has been voided.{% elsif financial_status == 'credited' %}Your payment has been refunded.{% endif %}</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">To view or print your gift card, visit the link below:</p>
+		</tr>
+		<tr id="action-button">
+			<center>
+				<div style='margin: 2em 50px;'>
+					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ gift_card.url }}>Go to gift card > </a>
+				</div>
+			</center>
 		</tr>
 		<tr id="body-2">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Please reply to this email if you have any questions or concerns.</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Purchased this gift card for someone else? Forward them this email :-)</p>
 		</tr>
 		<tr id="signature">
 			<div style="margin: 30px;">
