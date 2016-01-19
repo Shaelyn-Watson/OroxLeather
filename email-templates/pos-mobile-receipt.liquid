@@ -48,13 +48,9 @@
 				<p style="margin: 0 5%; line-height: 30px; text-align: center;">DISCOUNT - ({{ discounts.first.code }})  {{ discounts_savings | money }}</p>
 				{% endif %}
 				<p style="margin: 0 5%; line-height: 30px; text-align: center;">SUBTOTAL - {{ subtotal_price | money }}</p>
+				<p style="margin: 0 5%; line-height: 30px; text-align: center;">{% for shipping_line in shipping_lines %}{{ shipping_line.title | upcase }} - {{ shipping_line.price | money }} {% endfor %}</p>
+				<p style="margin: 0 5%; line-height: 30px; text-align: center;">TOTAL - {{ total_price | money }}</p>
 			</center>
-		</tr>
-		<tr id="body-2">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;"></p>
-		</tr>
-		<tr id="body-3">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;"></p>
 		</tr>
 		<tr id="action-button">
 			<center>
