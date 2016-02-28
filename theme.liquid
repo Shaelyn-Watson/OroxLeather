@@ -167,7 +167,7 @@
     <header>
       <div class="row">
 
-        <ul id="social-icons" class="{% if settings.enable-hello %}desktop-3{% else%}desktop-5{% endif %} tablet-6 mobile-hide">
+        <ul id="social-icons" class="{% if settings.enable-hello %}desktop-2{% else%}desktop-5{% endif %} tablet-6 mobile-hide">
           {% if settings.show_facebook %}<li><a href="{{ settings.facebook_url }}" target="_blank"><i class="icon-facebook icon-2x"></i></a></li>{% endif %}
           {% if settings.show_twitter %}<li><a href="http://www.twitter.com/{{ settings.twittername }}" target="_blank"><i class="icon-twitter icon-2x"></i></a></li>{% endif %}
           {% if settings.show_pinterest %}<li><a href="{{ settings.pinterest_url }}" target="_blank"><i class="icon-pinterest icon-2x"></i></a></li>{% endif %}
@@ -179,12 +179,12 @@
         </ul>
 
         {% if settings.enable-hello %}
-        <div id="hello" class="desktop-6 tablet-6 mobile-3">
+        <div id="hello" class="desktop-3 tablet-3 mobile-3">
           <p>{{ settings.hello }}</p>
         </div>
         {% endif %}        
 
-        <ul id="cart" class="{% if settings.enable-hello %}desktop-3 {% else %}desktop-6{% endif %} tablet-6 mobile-3">
+        <ul id="cart" class="{% if settings.enable-hello %}desktop-6 {% else %}desktop-6{% endif %} tablet-6 mobile-3">
           <li><i class="icon-search icon-2x"></i></li>
           <li>
             <form action="/search" method="get">
