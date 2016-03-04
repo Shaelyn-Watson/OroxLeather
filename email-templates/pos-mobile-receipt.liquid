@@ -39,7 +39,6 @@
 				<div style="margin: 10px 25px 25px 25px;">
 					{% for line in line_items %}
 						<div style="margin: 0 50px;">
-							<img src="{{ line.product.featured_image | product_img_url: 'thumb' }}" />
 							<p>{{ line.title }} ({{ line.line_price | money }} x {{ line.quantity }})</p>
 							<p>{% for discount in line.applied_discounts %} ( -{{discount.amount | money }} ){% endfor %}</p>
 						</div>
@@ -62,7 +61,7 @@
 		</tr>
 		<tr id="signature">
 			<div style="margin: 30px;">
-				<p style="line-height: 30px; text-align: center; margin: 0 5%;">Best regards,</p>
+				<p style="line-height: 30px; text-align: center; margin: 0 5%;">Sincerely,</p>
 				<p style="line-height: 30px; text-align: center; background:#dddddd; margin: 0 5%;">The Martinez Family</p>
 			</div>	
 		</tr>
