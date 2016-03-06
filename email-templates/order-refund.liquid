@@ -25,11 +25,11 @@
 			</center>
 		</tr>
 		<tr id="hello">
-			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if customer.name %}{{ customer.name }},{% endif %}</p>
+			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Dear {% if customer.name %}{{ customer.name }},{% endif %}</p>
 		</tr>
 		<tr id="body-0">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">
-				We have refunded your order ({{ name }}){% if amount > 0 %} for a total of {{ amount | money_with_currency }}{% endif %}
+			<p style="margin: 0 15%; line-height: 30px; text-align: center;">
+				We are sorry our product didn’t meet your needs. Please let us know how can we do better. We have refunded your order ({{ name }}){% if amount > 0 %} for a total of {{ amount | money_with_currency }}{% endif %} for the following items:
 			</p>
 		</tr>
 		<tr id="body-1">
@@ -45,12 +45,10 @@
 				</div>
 			</center>
 		</tr>
-		<tr id="action-button">
-			<center>
-				<div style='margin: 2em 50px;'>
-					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ url }}>Back to store > </a>
-				</div>
-			</center>
+		<tr id="body-2">
+			<p style="margin: 0 15%; line-height: 30px; text-align: center;">
+				Please allow up to 5 days until the refund clears on your bank account. We thank you for your business and look forward to seeing you back soon.
+			</p>
 		</tr>
 		<tr id="signature">
 			<div style="margin: 30px;">

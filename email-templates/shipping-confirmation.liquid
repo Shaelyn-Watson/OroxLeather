@@ -25,15 +25,15 @@
 			</center>
 		</tr>
 		<tr id="hello">
-			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if customer.name %}{{ customer.name }},{% endif %}</p>
+			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Dear {% if customer.name %}{{ customer.name }},{% endif %}</p>
 		</tr>
 		<tr id="body-0">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{% if fulfillment.line_items.size == line_items.size %}All{% else %}{% if unfulfilled_line_items.size == 0 %}The last{% else %}Some{% endif %}{% endif %} of the items from order {{ name }} have now been shipped:</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Congrats! Your order is on its way! {% if fulfillment.line_items.size == line_items.size %}All{% else %}{% if unfulfilled_line_items.size == 0 %}The last{% else %}Some{% endif %}{% endif %} of the items from order {{ name }} have now been shipped:</p>
 		</tr>
 		<tr id="body-1">
 			<center>
 				<div style="margin: 10px 25px 25px 25px;">
-					{% if fulfillment.line_items > 0 %} 
+					{% if fulfillment.line_items.size > 0 %} 
 						{% for line in fulfillment.line_items %}
 							<div style="margin: 0 50px;">
 								<img src="{{ line.product.featured_image | product_img_url: 'thumb' }}" />
@@ -54,10 +54,9 @@
 			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{{ shipping_address.country }}</p>
 		</tr>
 		<tr id="body-3">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">The tracking number for these items is: {{ fulfillment.tracking_number }}. </p>
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">You can see the status of this shipment at the following URL: {{ fulfillment.tracking_url }}</p>
+			<p style="margin: 0 5%; line-height: 30px; text-align: center;">The tracking number for these items is:</p>
+			<center><a style="margin: 0 5%; line-height: 30px; text-align: center;" target="_blank" href={{ fulfillment.tracking_url }}>{{ fulfillment.tracking_number }}</a></center>
 			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Please allow some time for the status of the shipment to correctly display at the above address.</p>
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">You will receive a confirmation email when more items from your order have been shipped.</p>
 		</tr>
 		<tr id="action-button">
 			<center>
@@ -65,6 +64,9 @@
 					<a style="color:#444444; border:2px solid #444444; text-decoration: none; border-radius: 2px; padding: 10px;" target="_blank" href={{ url }}>Back to store > </a>
 				</div>
 			</center>
+		</tr>
+		<tr id="welcome-to-family">
+			<p style="margin: 20px 5%; line-height: 30px; text-align: center;">Welcome to the family!</p>
 		</tr>
 		<tr id="signature">
 			<div style="margin: 30px;">

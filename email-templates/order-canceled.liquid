@@ -25,16 +25,13 @@
 			</center>
 		</tr>
 		<tr id="hello">
-			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Hello {% if billing_address.name %}{{ billing_address.name }},{% endif %}</p>
+			<p style="line-height: 30px; text-align: center; margin: 45px 5% 15px 5%;">Dear {% if billing_address.name %}{{ billing_address.name }},{% endif %}</p>
 		</tr>
 		<tr id="body-0">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Your order {{ name }} was cancelled {% case cancel_reason %}{% when 'customer' %}at your request.{% when 'inventory' %}because we did not have enough stock to fulfill your order.{% when 'fraud' %}because we suspect it is fraudulent.{% when 'other' %}due to unforeseen circumstances.{% endcase %}</p>
+			<p style="margin: 0 15%; line-height: 30px; text-align: center;">We are sorry our product didn’t meet your needs. Per your request, we have cancelled the order (#9999) and your payment has been voided.</p>
 		</tr>
 		<tr id="body-1">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">{% if financial_status == 'voided' %}Your payment has been voided.{% elsif financial_status == 'credited' %}Your payment has been refunded.{% endif %}</p>
-		</tr>
-		<tr id="body-2">
-			<p style="margin: 0 5%; line-height: 30px; text-align: center;">Please reply to this email if you have any questions or concerns.</p>
+			<p style="margin: 0 15%; line-height: 30px; text-align: center;">Please reply to this email if you have any questions or concerns. Your input is important to us so please let us know what we can do better to meet your needs.</p>
 		</tr>
 		<tr id="signature">
 			<div style="margin: 30px;">
